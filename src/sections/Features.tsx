@@ -130,6 +130,7 @@ export const Features = () => {
 
   return (
     <motion.section
+      id="features"
       className="py-20 md:py-24 bg-black relative overflow-visible"
       style={{
         backgroundImage: `url(${StarsBg.src})`,
