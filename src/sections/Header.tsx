@@ -1,5 +1,7 @@
 import MenuIcon from '@/assets/icon-menu.svg'
 import Button from '@/components/Button'
+import Logo from "@/assets/logo.png"
+import Image from 'next/image'
 
 export const Header = () => {
   return (
@@ -10,7 +12,12 @@ export const Header = () => {
           <div className="absolute inset-0 backdrop-blur -z-10 hidden md:block"></div>
           <div className="">
             <div className="border border-white/15 h-10 w-10 rounded-lg inline-flex justify-center items-center">
-              <img src="/favicon.ico" alt="StablePay Logo" className="h-8 w-8" />
+              <Image 
+                src={Logo}
+                alt='StablePay Logo'
+                width={34}
+                height={34}
+              />
             </div>
           </div>
           <div className="hidden md:block">
