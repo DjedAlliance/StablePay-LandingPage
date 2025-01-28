@@ -48,7 +48,7 @@ export const Hero = () => {
           duration: 60,
           ease: 'linear',
         }}
-        className="absolute h-[244px] w-[244px] md:h-[680px] md:w-[680px] border border-white/40 rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+        className="absolute h-[244px] w-[244px] md:h-[680px] md:w-[680px] sm:h-[344px] sm:w-[344px] border border-white/40 rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
       >
         <div className="absolute h-3 w-3 left-0 bg-white/50 rounded-full top-1/2 -translate-x-1/2 -translate-y-1/2"></div>
         <div className="absolute h-3 w-3 left-1/2 bg-white/50 rounded-full top-0 -translate-x-1/2 -translate-y-1/2"></div>
@@ -72,7 +72,7 @@ export const Hero = () => {
           duration: 60,
           ease: 'linear',
         }}
-        className="absolute h-[544px] w-[544px] md:h-[980px] md:w-[980px] rounded-full border border-dashed border-orange-400 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+        className="absolute h-[544px] w-[544px] md:h-[980px] md:w-[980px] sm:h-[744px] sm:w-[744px] rounded-full border border-dashed border-orange-400 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
       ></motion.div>
       {/* End Ring 2 */}
 
@@ -90,22 +90,22 @@ export const Hero = () => {
           duration: 60,
           ease: 'linear',
         }}
-        className="absolute h-[644px] w-[644px] md:h-[1180px] md:w-[1180px] rounded-full border border-white/50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+        className="absolute h-[644px] w-[644px] sm:h-[844px] sm:w-[844px] md:h-[1180px] md:w-[1180px] rounded-full border border-white/50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
       >
         <div className="absolute h-3 w-3 left-0 bg-white/50 rounded-full top-1/2 -translate-x-1/2 -translate-y-1/2"></div>
         <div className="absolute h-3 w-3 left-full bg-white/50 rounded-full top-1/2 -translate-x-1/2 -translate-y-1/2"></div>
       </motion.div>
       {/* End Ring 3 */}
 
-      <div className="container relative mt-16 -mt-16">
-        <p className="font-caudex text-2xl max-w-xl mx-auto text-orange-100/70 mb-5 text-center tracking-tight italic">
+      <div className="container relative mt-16 -mt-16 text-center">
+        <p className="font-caudex text:xl sm:text-2xl max-w-xl mx-auto text-orange-100/70 mb-5 text-center tracking-tight italic">
           ✨ Freeing merchants, redefining payments ✨
         </p>
 
-        <h1 className="font-inter text-8xl md:text-[135px] md:leading-none tracking-tighter bg-gradient-to-br from-[#F7941D] via-[#F57C00] to-[#EF6C00] text-transparent bg-clip-text text-center pb-4">
+        <h1 className="font-inter text-xl sm:text-5xl md:text-[135px] md:leading-none tracking-tighter bg-gradient-to-br from-[#F7941D] via-[#F57C00] to-[#EF6C00] text-transparent bg-clip-text text-center pb-4">
           StablePay
         </h1>
-        <p className="font-caudex text-2xl max-w-xl mx-auto text-orange-100/95 mt-5 text-center tracking-tight">
+        <p className="font-caudex text-xl sm:text-2xl max-w-xl mx-auto text-orange-100/95 mt-5 text-center tracking-tight">
           An open-source SDK enabling merchants to accept payments in Djed stablecoins
         </p>
         <div className="flex justify-center mt-7 mb-5">
