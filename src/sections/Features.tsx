@@ -66,7 +66,7 @@ const FeatureTab = (props: (typeof tabs)[number] & ComponentPropsWithoutRef<'div
     <motion.div
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
-      className="border border-white/15 flex p-2.5 rounded-xl gap-2.5 items-center lg:flex-1 relative cursor-pointer"
+      className="border border-gray-200 dark:border-white/15 flex p-2.5 rounded-xl gap-2.5 items-center lg:flex-1 relative cursor-pointer bg-white dark:bg-transparent"
       ref={tabRef}
       onClick={props.onClick}
     >
@@ -83,9 +83,9 @@ const FeatureTab = (props: (typeof tabs)[number] & ComponentPropsWithoutRef<'div
       )}
       <motion.div
         whileHover={{ rotate: 10 }}
-        className="h-12 w-12 border border-white/15 rounded-lg inline-flex items-center justify-center bg-white/5"
+        className="h-12 w-12 border border-gray-200 dark:border-white/15 rounded-lg inline-flex items-center justify-center bg-gray-50 dark:bg-white/5"
       >
-        <IconComponent className="h-5 w-5 text-white/70" />
+        <IconComponent className="h-5 w-5 text-gray-700 dark:text-white/70" />
       </motion.div>
       <div className="font-medium">{props.title}</div>
       {props.isNew && (
@@ -131,7 +131,7 @@ export const Features = () => {
   return (
     <motion.section
       id="features"
-      className="py-20 md:py-24 bg-black relative overflow-visible"
+      className="py-20 md:py-24 bg-white dark:bg-black relative overflow-visible"
       style={{
         backgroundImage: `url(${StarsBg.src})`,
         backgroundPositionY: starsBackgroundY,
@@ -144,7 +144,7 @@ export const Features = () => {
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8 }}
-          className="text-5xl md:text-6xl font-medium text-center tracking-tighter text-white"
+          className="text-5xl md:text-6xl font-medium text-center tracking-tighter text-gray-900 dark:text-white"
         >
           Easily integrate into your merchant website
         </motion.h2>
@@ -153,7 +153,7 @@ export const Features = () => {
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8 }}
-          className="text-white/70 text-lg md:text-xl max-w-2xl mx-auto tracking-tight text-center mt-5"
+          className="text-gray-700 dark:text-white/70 text-lg md:text-xl max-w-2xl mx-auto tracking-tight text-center mt-5"
         >
           StablePay offers a seamless SDK for merchants to accept Djed stablecoins effortlessly.
         </motion.p>
@@ -169,10 +169,10 @@ export const Features = () => {
           whileInView={{ scale: 1, opacity: 1 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8 }}
-          className="border border-white/20 p-2.5 rounded-xl mt-3"
+          className="border border-gray-200 dark:border-white/20 p-2.5 rounded-xl mt-3 bg-white dark:bg-transparent"
         >
           <motion.div
-            className="aspect-video bg-cover border border-white/20 rounded-lg"
+            className="aspect-video bg-cover border border-gray-200 dark:border-white/20 rounded-lg"
             style={{
               backgroundImage: `url(${ProductImage.src})`,
               backgroundPosition: backgroundPosition,
