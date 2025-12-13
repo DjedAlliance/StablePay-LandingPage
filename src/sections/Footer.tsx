@@ -27,11 +27,15 @@ export const Footer = () => {
               </a>
             </nav>
             <div className="flex gap-5 lg:flex-1 lg:justify-end">
-              <XSocial className="text-gray-600 dark:text-white/40 hover:text-gray-900 dark:hover:text-white transition" />
+              <a href="https://x.com/StabilityNexus" target="_blank" rel="noopener noreferrer" aria-label="Stability Nexus on X">
+                <XSocial className="text-gray-600 dark:text-white/40 hover:text-gray-900 dark:hover:text-white transition" />
+              </a>
               <a href="https://github.com/DjedAlliance/StablePay-LandingPage" target="_blank" rel="noopener noreferrer" aria-label="GitHub Repository">
                 <GitHubSvg className="text-gray-600 dark:text-white/40 hover:text-gray-900 dark:hover:text-white transition" />
               </a>
-              <YTSocial className="text-gray-600 dark:text-white/40 hover:text-gray-900 dark:hover:text-white transition" />
+              <a href="https://www.youtube.com/@StabilityNexus" target="_blank" rel="noopener noreferrer" aria-label="Stability Nexus on YouTube">
+                <YTSocial className="text-gray-600 dark:text-white/40 hover:text-gray-900 dark:hover:text-white transition" />
+              </a>
             </div>
           </div>
         </div>

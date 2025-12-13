@@ -108,8 +108,17 @@ export const Hero = () => {
         <p className="font-caudex text-2xl max-w-xl mx-auto text-orange-900/90 dark:text-orange-100/95 mt-5 text-center tracking-tight">
           An open-source SDK enabling merchants to accept payments in Djed stablecoins
         </p>
-        <div className="flex justify-center mt-7 mb-5">
-          <Button>Get Started </Button>
+        <div className="flex justify-center gap-4 mt-7 mb-5 flex-wrap">
+          <Button>Get Started</Button>
+          <a
+            href="https://youtu.be/cobPTo_2QnE"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative py-2 px-3 rounded-lg font-medium text-sm border-2 border-[#FF863B] text-[#FF863B] hover:bg-[#FF863B] hover:text-white transition-all duration-300"
+            style={{ boxShadow: '0 0 8px rgba(255, 134, 59, 0.3)' }}
+          >
+            <span>Get a Demo</span>
+          </a>
         </div>
       </div>
     </motion.section>

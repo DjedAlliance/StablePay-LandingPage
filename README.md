@@ -34,3 +34,35 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Deploy on GitHub Pages
+
+This project is configured to deploy automatically to GitHub Pages using GitHub Actions.
+
+### Setup Instructions
+
+1. **Enable GitHub Pages in your repository:**
+   - Go to your repository settings
+   - Navigate to "Pages" in the left sidebar
+   - Under "Source", select "GitHub Actions"
+
+2. **The workflow will automatically:**
+   - Build the Next.js static site on every push to the `main` branch
+   - Deploy to GitHub Pages
+   - Handle basePath configuration automatically (if repo is not at root)
+
+3. **Manual deployment:**
+   - You can also trigger the workflow manually from the "Actions" tab
+
+### Configuration
+
+- The workflow file is located at `.github/workflows/nextjs.yml`
+- Next.js is configured with `output: 'export'` for static site generation
+- The build output is automatically uploaded to GitHub Pages
+- The `actions/configure-pages@v5` action automatically handles basePath configuration
+
+### Notes
+
+- The site will be available at `https://[username].github.io/[repository-name]/`
+- If your repository is at the root (e.g., `username.github.io`), the basePath will be automatically adjusted
+- Static export is enabled, so all pages are pre-rendered at build time
