@@ -1,5 +1,7 @@
 import XSocial from '@/assets/social-x.svg'
 import YTSocial from '@/assets/social-youtube.svg'
+import logo from '@/assets/svg/logo1.svg'
+import github from '@/src/assets/svg/github.svg'
 
 export const Footer = () => {
   return (
@@ -8,7 +10,7 @@ export const Footer = () => {
         <div className="container">
           <div className="flex flex-col lg:flex-row lg:items-center gap-5">
             <div className="flex gap-2 items-center lg:flex-1">
-              <img src="/favicon.ico" alt="StablePay Logo" className="h-6 w-6" />
+              <img src="src/assets/svg/logo1.svg" alt="StablePay Logo" className="h-6 w-6" />
               <div className="font-medium">StablePay</div>
             </div>
             <nav className="flex flex-col lg:flex-row gap-2 lg:gap-4 lg:flex-1 lg:justify-center">

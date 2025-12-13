@@ -1,0 +1,1 @@
+issue is fixed and svg is working fine and svg are added in footer and header
