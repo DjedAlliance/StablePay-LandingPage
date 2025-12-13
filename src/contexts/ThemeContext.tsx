@@ -9,12 +9,7 @@ interface ThemeContextType {
   toggleTheme: () => void
 }
 
-const defaultContextValue: ThemeContextType = {
-  theme: 'dark',
-  toggleTheme: () => {},
-}
-
-const ThemeContext = createContext<ThemeContextType>(defaultContextValue)
+const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>('dark')
