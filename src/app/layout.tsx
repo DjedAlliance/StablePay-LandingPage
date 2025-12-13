@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import { Inter, Fraunces, Caudex } from 'next/font/google'
-import { twMerge } from 'tailwind-merge'
 import './globals.css'
 
 const inter = Inter({
@@ -33,18 +32,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode
-}>) {
+}) {
   return (
     <html lang="en">
       <body
-        className={twMerge(
-          inter.variable,
-          fraunces.variable,
-          caudex.variable,
-          'font-inter bg-black text-white antialiased'
-        )}
+        className={`${inter.variable} ${fraunces.variable} ${caudex.variable} font-inter bg-black text-white antialiased`}
       >
         {/* Root scroll container */}
         <main className="relative min-h-screen overflow-x-hidden">

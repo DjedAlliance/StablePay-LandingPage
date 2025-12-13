@@ -4,10 +4,6 @@
 
 
 /* Responsive safety layer – does NOT change UI */
-html, body {
-  max-width: 100%;
-  overflow-x: hidden;
-}
 
 img {
   max-width: 100%;
@@ -37,5 +33,5 @@ img {
 }
 
 /* Mobile-first responsiveness */
-html, body { overflow-x: hidden; }
+/* html, body { overflow-x: hidden; } */
 img { max-width: 100%; height: auto; }
