@@ -30,7 +30,8 @@ export const LogoTicker = () => {
           >
             {items.map((item, index) => (
               <div key={index} className="flex items-center gap-2">
-                <div className="h-6 w-6 bg-[#FF863B] rounded"></div> {/* Small Box */}
+                <div className="h-6 w-6 bg-[#FF863B] rounded">
+                </div> {/* Small Box */}
                 <span className="text-sm font-medium text-white">{item.label}</span>
               </div>
             ))}
