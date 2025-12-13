@@ -97,24 +97,24 @@ export const Hero = () => {
       </motion.div>
       {/* End Ring 3 */}
 
-      <div className="container relative mt-8 md:mt-16 px-4 max-w-full">
-        <p className="font-caudex text-base sm:text-lg md:text-xl lg:text-2xl max-w-xl mx-auto text-orange-900/80 dark:text-orange-100/70 mb-4 md:mb-5 text-center tracking-tight italic">
+      <div className="container relative mt-16">
+        <p className="font-caudex text-2xl max-w-xl mx-auto text-orange-900/80 dark:text-orange-100/70 mb-5 text-center tracking-tight italic">
           ✨ Freeing merchants, redefining payments ✨
         </p>
 
-        <h1 className="font-inter text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-[135px] md:leading-none tracking-tighter bg-gradient-to-br from-[#F7941D] via-[#F57C00] to-[#EF6C00] text-transparent bg-clip-text text-center pb-2 md:pb-4">
+        <h1 className="font-inter text-8xl md:text-[135px] md:leading-none tracking-tighter bg-gradient-to-br from-[#F7941D] via-[#F57C00] to-[#EF6C00] text-transparent bg-clip-text text-center pb-4">
           StablePay
         </h1>
-        <p className="font-caudex text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl max-w-xl mx-auto text-orange-900/90 dark:text-orange-100/95 mt-4 md:mt-5 text-center tracking-tight px-4">
+        <p className="font-caudex text-2xl max-w-xl mx-auto text-orange-900/90 dark:text-orange-100/95 mt-5 text-center tracking-tight">
           An open-source SDK enabling merchants to accept payments in Djed stablecoins
         </p>
-        <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 mt-6 md:mt-7 mb-5 items-center px-4">
+        <div className="flex justify-center gap-4 mt-7 mb-5">
           <Button>Get Started</Button>
           <a
             href="https://youtu.be/cobPTo_2QnE"
             target="_blank"
             rel="noopener noreferrer"
-            className="relative py-2 px-3 rounded-lg font-medium text-sm border-2 border-[#FF863B] text-[#FF863B] hover:bg-[#FF863B] hover:text-white transition-all duration-300 w-full sm:w-auto text-center"
+            className="relative py-2 px-3 rounded-lg font-medium text-sm border-2 border-[#FF863B] text-[#FF863B] hover:bg-[#FF863B] hover:text-white transition-all duration-300"
             style={{ boxShadow: '0 0 8px rgba(255, 134, 59, 0.3)' }}
           >
             <span>Get a Demo</span>

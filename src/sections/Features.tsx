@@ -131,20 +131,20 @@ export const Features = () => {
   return (
     <motion.section
       id="features"
-      className="py-16 md:py-20 lg:py-24 bg-white dark:bg-black relative overflow-hidden w-full"
+      className="py-20 md:py-24 bg-white dark:bg-black relative overflow-visible"
       style={{
         backgroundImage: `url(${StarsBg.src})`,
         backgroundPositionY: starsBackgroundY,
         backgroundSize: 'cover',
       }}
     >
-      <div className="container px-4">
+      <div className="container">
         <motion.h2
           initial={{ y: 50, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8 }}
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-center tracking-tighter text-gray-900 dark:text-white px-4"
+          className="text-5xl md:text-6xl font-medium text-center tracking-tighter text-gray-900 dark:text-white"
         >
           Easily integrate into your merchant website
         </motion.h2>
@@ -153,12 +153,12 @@ export const Features = () => {
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8 }}
-          className="text-gray-700 dark:text-white/70 text-base md:text-lg lg:text-xl max-w-2xl mx-auto tracking-tight text-center mt-4 md:mt-5 px-4"
+          className="text-gray-700 dark:text-white/70 text-lg md:text-xl max-w-2xl mx-auto tracking-tight text-center mt-5"
         >
           StablePay offers a seamless SDK for merchants to accept Djed stablecoins effortlessly.
         </motion.p>
 
-        <div className="mt-8 md:mt-10 flex flex-col lg:flex-row gap-3 px-2">
+        <div className="mt-10 flex flex-col lg:flex-row gap-3">
           {tabs.map((tab, index) => (
             <FeatureTab selected={selectedTab === index} onClick={() => handleSelectTab(index)} {...tab} key={index} />
           ))}
@@ -169,7 +169,7 @@ export const Features = () => {
           whileInView={{ scale: 1, opacity: 1 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8 }}
-          className="border border-gray-200 dark:border-white/20 p-2 md:p-2.5 rounded-xl mt-3 bg-white dark:bg-transparent mx-2"
+          className="border border-gray-200 dark:border-white/20 p-2.5 rounded-xl mt-3 bg-white dark:bg-transparent"
         >
           <motion.div
             className="aspect-video bg-cover border border-gray-200 dark:border-white/20 rounded-lg"

@@ -46,11 +46,11 @@ export const CallToAction = () => {
   const maskImage = useMotionTemplate`radial-gradient(50% 50% at ${mouseX}px ${mouseY}px, black, transparent)`
 
   return (
-    <section ref={sectionRef} className="py-16 md:py-20 lg:py-24 bg-white dark:bg-black overflow-hidden w-full">
-      <div className="container px-4 max-w-full">
+    <section ref={sectionRef} className="py-20 md:py-24 bg-white dark:bg-black">
+      <div className="container">
         <motion.div
           ref={borderedDivRef}
-          className="border border-gray-200 dark:border-white/15 py-12 sm:py-16 md:py-20 lg:py-24 rounded-xl overflow-hidden relative group bg-white dark:bg-transparent"
+          className="border border-gray-200 dark:border-white/15 py-24 rounded-xl overflow-hidden relative group bg-white dark:bg-transparent"
           animate={{
             backgroundPositionX: startBg.width,
           }}
@@ -77,15 +77,15 @@ export const CallToAction = () => {
               backgroundImage: `url(${gridLines.src})`,
             }}
           ></motion.div>
-          <div className="relative px-4">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-medium max-w-sm sm:max-w-md md:max-w-lg mx-auto tracking-tighter text-center text-gray-900 dark:text-white">
+          <div className="relative">
+            <h2 className="text-5xl md:text-6xl font-medium max-w-sm mx-auto tracking-tighter text-center text-gray-900 dark:text-white">
               Redefining the Future of Stable Payments.
             </h2>
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl max-w-xs sm:max-w-sm md:max-w-md mx-auto text-center text-gray-700 dark:text-white/70 px-4 mt-4 md:mt-5 tracking-tight">
+            <p className="text-lg md:text-xl max-w-xs mx-auto text-center text-gray-700 dark:text-white/70 px-4 mt-5 tracking-tight">
               Accept Djed stablecoins and empower your business with a reliable, decentralized payment solution.
             </p>
 
-            <div className="mt-6 md:mt-8 flex justify-center">
+            <div className="mt-8 flex justify-center">
               <Button>Integrate StablePay Today!</Button>
             </div>
           </div>
