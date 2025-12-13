@@ -26,6 +26,9 @@ const caudex = Caudex({
 export const metadata: Metadata = {
   title: 'StablePay Landing Page',
   description: 'A landing page for StablePay',
+  icons: {
+    icon: '/favicon.ico',
+  },
 }
 
 export default function RootLayout({
@@ -43,7 +46,10 @@ export default function RootLayout({
           'font-inter bg-black text-white antialiased'
         )}
       >
-        {children}
+        {/* Root scroll container */}
+        <main className="relative min-h-screen overflow-x-hidden">
+          {children}
+        </main>
       </body>
     </html>
   )
