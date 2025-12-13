@@ -1,7 +1,7 @@
 function Button(props: React.PropsWithChildren) {
   return (
     <button
-      className="relative py-2 px-3 rounded-lg font-medium text-sm bg-gradient-to-b from-[#331500] to-[#FF863B] text-white"
+      className="relative py-2 px-4 sm:px-5 rounded-lg font-medium text-xs sm:text-sm bg-gradient-to-b from-[#331500] to-[#FF863B] text-white w-full sm:w-auto"
       style={{ boxShadow: '0 0 12px #FF863B' }}
     >
       <div className="absolute inset-0 rounded-lg">

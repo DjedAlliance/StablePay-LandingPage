@@ -22,30 +22,41 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     setMounted(true)
-    // Check localStorage for saved theme preference
-    const savedTheme = localStorage.getItem('theme') as Theme | null
-    if (savedTheme) {
-      setTheme(savedTheme)
-    } else {
-      // Check system preference
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-      setTheme(prefersDark ? 'dark' : 'light')
+    try {
+      // Check localStorage for saved theme preference
+      const savedTheme = localStorage.getItem('theme') as Theme | null
+      if (savedTheme && (savedTheme === 'light' || savedTheme === 'dark')) {
+        setTheme(savedTheme)
+      } else {
+        // Check system preference
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+        setTheme(prefersDark ? 'dark' : 'light')
+      }
+    } catch (error) {
+      // Fallback to dark theme if localStorage is not available
+      console.error('Error accessing localStorage:', error)
+      setTheme('dark')
     }
   }, [])
 
   useEffect(() => {
     if (!mounted) return
     
-    // Apply theme to document
-    const root = document.documentElement
-    if (theme === 'dark') {
-      root.classList.add('dark')
-    } else {
-      root.classList.remove('dark')
+    try {
+      // Apply theme to document
+      const root = document.documentElement
+      if (theme === 'dark') {
+        root.classList.add('dark')
+      } else {
+        root.classList.remove('dark')
+      }
+      
+      // Save to localStorage
+      localStorage.setItem('theme', theme)
+    } catch (error) {
+      // Handle localStorage errors gracefully
+      console.error('Error saving theme to localStorage:', error)
     }
-    
-    // Save to localStorage
-    localStorage.setItem('theme', theme)
   }, [theme, mounted])
 
   const toggleTheme = () => {

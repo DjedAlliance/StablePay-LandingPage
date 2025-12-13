@@ -8,14 +8,13 @@ import { Footer } from '@/sections/Footer'
 
 export default function Home() {
   return (
-    <>
+    <div className="overflow-x-hidden w-full">
       <Header />
       <Hero />
       <LogoTicker />
       <Features />
-
       <CallToAction />
       <Footer />
-    </>
+    </div>
   )
 }

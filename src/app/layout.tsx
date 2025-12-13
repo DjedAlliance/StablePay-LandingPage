@@ -41,7 +41,7 @@ export default function RootLayout({
           inter.variable,
           fraunces.variable,
           caudex.variable,
-          'font-inter bg-white dark:bg-black text-gray-900 dark:text-white antialiased'
+          'font-inter bg-white dark:bg-black text-gray-900 dark:text-white antialiased overflow-x-hidden'
         )}
       >
         <ThemeProvider>{children}</ThemeProvider>
