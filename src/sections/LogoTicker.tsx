@@ -3,12 +3,12 @@ import { motion } from 'framer-motion'
 
 export const LogoTicker = () => {
   const items = [
-    { label: 'Stability Nexus' },
-    { label: 'Djed Alliance' },
-    { label: 'Stability Nexus' },
-    { label: 'Djed Alliance' },
-  ]
-
+    { label: 'Stability Nexus', logo: '/readme-assets/stability-nexus.svg' },
+    { label: 'Djed Alliance', logo: '/readme-assets/djed-alliance.svg' },
+    { label: 'Stability Nexus', logo: '/readme-assets/stability-nexus.svg' },
+    { label: 'Djed Alliance', logo: '/readme-assets/djed-alliance.svg' },
+  ];
+  
   return (
     <section className="py-20 md:py-24">
       <div className="container flex items-center gap-8">
@@ -30,14 +30,16 @@ export const LogoTicker = () => {
           >
             {items.map((item, index) => (
               <div key={index} className="flex items-center gap-2">
-                <div className="h-6 w-6 bg-[#FF863B] rounded"></div> {/* Small Box */}
+                {/* Logo Image */}
+                <img src={item.logo} alt={item.label} className="h-6 w-6 object-contain" />
                 <span className="text-sm font-medium text-white">{item.label}</span>
               </div>
             ))}
             {/* Repeat items for seamless looping */}
             {items.map((item, index) => (
               <div key={`${index}-repeat`} className="flex items-center gap-2">
-                <div className="h-6 w-6 bg-[#FF863B] rounded"></div> {/* Small Box */}
+                {/* Logo Image */}
+                <img src={item.logo} alt={item.label} className="h-6 w-6 object-contain" />
                 <span className="text-sm font-medium text-white">{item.label}</span>
               </div>
             ))}
@@ -45,5 +47,5 @@ export const LogoTicker = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
