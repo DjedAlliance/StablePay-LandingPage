@@ -1,5 +1,6 @@
 import XSocial from '@/assets/social-x.svg'
 import YTSocial from '@/assets/social-youtube.svg'
+import GitHubSocial from '@/assets/social-github.svg'
 
 export const Footer = () => {
   return (
@@ -26,8 +27,15 @@ export const Footer = () => {
               </a>
             </nav>
             <div className="flex gap-5 lg:flex-1 lg:justify-end">
-              <XSocial className="text-white/40 hover:text-white transition" />
-              <YTSocial className="text-white/40 hover:text-white transition" />
+              <a href="https://github.com" className="text-white/40 hover:text-white transition">
+                <GitHubSocial />
+              </a>
+              <a href="https://x.com" className="text-white/40 hover:text-white transition">
+                <XSocial />
+              </a>
+              <a href="https://youtube.com" className="text-white/40 hover:text-white transition">
+                <YTSocial />
+              </a>
             </div>
           </div>
         </div>
