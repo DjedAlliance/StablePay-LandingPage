@@ -2,10 +2,12 @@
 
 import Button from '@/components/Button'
 import startBg from '@/assets/stars.png'
+import startBgLight from '@/assets/stars-light.png'
 import gridLines from '@/assets/grid-lines.png'
 import { RefObject, useEffect, useRef, useCallback } from 'react'
 import { useMotionTemplate, useMotionValue, useScroll, useTransform } from 'framer-motion'
 import { motion } from 'framer-motion'
+import { useTheme } from '@/context/ThemeContext'
 
 const useRelativeMousePosition = (to: RefObject<HTMLElement>) => {
   const mouseX = useMotionValue(0)
@@ -33,6 +35,7 @@ const useRelativeMousePosition = (to: RefObject<HTMLElement>) => {
 }
 
 export const CallToAction = () => {
+  const { theme } = useTheme()
   const sectionRef = useRef<HTMLElement>(null)
   const borderedDivRef = useRef<HTMLDivElement>(null)
 
@@ -50,7 +53,7 @@ export const CallToAction = () => {
       <div className="container">
         <motion.div
           ref={borderedDivRef}
-          className="border border-white/15 py-24 rounded-xl overflow-hidden relative group"
+          className="border border-border-primary/[var(--border-opacity)] py-24 rounded-xl overflow-hidden relative group"
           animate={{
             backgroundPositionX: startBg.width,
           }}
@@ -60,18 +63,18 @@ export const CallToAction = () => {
             ease: 'linear',
           }}
           style={{
-            backgroundImage: `url(${startBg.src})`,
+            backgroundImage: `url(${theme === 'dark' ? startBg.src : startBgLight.src})`,
             backgroundPositionY: backgroundPositionY,
           }}
         >
           <div
-            className="absolute inset-0 bg-[#FF863B] bg-blend-overlay [mask-image:radial-gradient(50%_50%_at_50%_35%,black,transparent)] group-hover:opacity-0 transition duration-300"
+            className="absolute inset-0 bg-accent-primary bg-blend-overlay [mask-image:radial-gradient(50%_50%_at_50%_35%,black,transparent)] group-hover:opacity-0 transition duration-300"
             style={{
               backgroundImage: `url(${gridLines.src})`,
             }}
           ></div>
           <motion.div
-            className="absolute inset-0 bg-[#FF863B] bg-blend-overlay opacity-0 group-hover:opacity-100 transition duration-300"
+            className="absolute inset-0 bg-accent-primary bg-blend-overlay opacity-0 group-hover:opacity-100 transition duration-300"
             style={{
               maskImage: maskImage,
               backgroundImage: `url(${gridLines.src})`,
@@ -81,7 +84,7 @@ export const CallToAction = () => {
             <h2 className="text-5xl md:text-6xl font-medium max-w-sm mx-auto tracking-tighter text-center">
               Redefining the Future of Stable Payments.
             </h2>
-            <p className="text-lg md:text-xl max-w-xs mx-auto text-center text-white/70 px-4 mt-5 tracking-tight">
+            <p className="text-lg md:text-xl max-w-xs mx-auto text-center text-text-secondary px-4 mt-5 tracking-tight">
               Accept Djed stablecoins and empower your business with a reliable, decentralized payment solution.
             </p>
 

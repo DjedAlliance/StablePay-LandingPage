@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter, Fraunces, Caudex } from 'next/font/google'
 import { twMerge } from 'tailwind-merge'
 import './globals.css'
+import { ThemeProvider } from '@/context/ThemeContext'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -34,16 +35,16 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={twMerge(
           inter.variable,
           fraunces.variable,
           caudex.variable,
-          'font-inter bg-black text-white antialiased'
+          'font-inter bg-bg-primary text-text-primary antialiased'
         )}
       >
-        {children}
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   )

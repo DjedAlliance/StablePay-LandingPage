@@ -1,3 +1,47 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    /* Dark theme (default) */
+    --bg-primary: 0 0% 0%;
+    --bg-secondary: 0 0% 5%;
+    --text-primary: 0 0% 100%;
+    --text-secondary: 0 0% 70%;
+    --border-primary: 0 0% 100%;
+    --border-opacity: 0.15;
+    --accent-primary: 25 100% 61%;
+    --accent-secondary: 25 100% 48%;
+    --accent-glow: 25 100% 61%;
+    --ring-color: 0 0% 100%;
+    --ring-opacity: 0.4;
+    --dot-color: 0 0% 100%;
+    --dot-opacity: 0.5;
+    --logo-filter: none;
+    --card-text: 0 0% 100%;
+  }
+
+  .light {
+    /* Light theme */
+    --bg-primary: 0 0% 100%;
+    --bg-secondary: 0 0% 98%;
+    --text-primary: 0 0% 10%;
+    --text-secondary: 0 0% 40%;
+    --border-primary: 0 0% 10%;
+    --border-opacity: 0.15;
+    --accent-primary: 217 91% 60%;
+    --accent-secondary: 217 91% 50%;
+    --accent-glow: 217 91% 60%;
+    --ring-color: 217 91% 60%;
+    --ring-opacity: 0.4;
+    --dot-color: 217 91% 60%;
+    --dot-opacity: 0.5;
+    --logo-filter: none;
+    --card-text: 0 0% 20%;
+  }
+
+  body {
+    @apply bg-bg-primary text-text-primary transition-colors duration-300;
+  }
+}
