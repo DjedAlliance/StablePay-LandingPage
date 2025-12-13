@@ -1,7 +1,4 @@
-# Sample workflow for building and deploying a Next.js site to GitHub Pages
-#
-# To get started with Next.js see: https://nextjs.org/docs/getting-started
-#
+# Workflow for building and deploying a Next.js static site to GitHub Pages
 name: Deploy Next.js site to Pages
 
 on:
@@ -31,6 +28,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      
       - name: Detect package manager
         id: detect-package-manager
         run: |
@@ -39,7 +37,7 @@ jobs:
             echo "command=install" >> $GITHUB_OUTPUT
             echo "runner=yarn" >> $GITHUB_OUTPUT
             exit 0
-          elif [ -f "${{ github.workspace }}/package.json" ]; then
+          elif [ -f "${{ github.workspace }}/package-lock.json" ]; then
             echo "manager=npm" >> $GITHUB_OUTPUT
             echo "command=ci" >> $GITHUB_OUTPUT
             echo "runner=npx --no-install" >> $GITHUB_OUTPUT
@@ -48,19 +46,20 @@ jobs:
             echo "Unable to determine package manager"
             exit 1
           fi
-      - name: Setup Node
+      
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "20"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
+      
       - name: Setup Pages
         uses: actions/configure-pages@v5
         with:
-          # Automatically inject basePath in your Next.js configuration file and disable
-          # server side image optimization (https://nextjs.org/docs/api-reference/next/image#unoptimized).
-          #
-          # You may remove this line if you want to manage the configuration yourself.
+          # Automatically inject basePath in your Next.js configuration file
+          # This is required for GitHub Pages deployment when repo is not at root
           static_site_generator: next
+      
       - name: Restore cache
         uses: actions/cache@v4
         with:
@@ -71,13 +70,20 @@ jobs:
           # If source files changed but packages didn't, rebuild from a prior cache.
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
+      
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+      
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
+        env:
+          # Ensure static export is used
+          NODE_ENV: production
+      
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
+          # Next.js static export outputs to ./out directory
           path: ./out
 
   # Deployment job
