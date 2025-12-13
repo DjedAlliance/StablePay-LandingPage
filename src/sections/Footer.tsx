@@ -1,7 +1,10 @@
 import Logo from '@/assets/svg/logo.svg'
 import XSocial from '@/assets/social-x.svg'
 import YTSocial from '@/assets/social-youtube.svg'
-
+/**
+ * Footer component for StablePay landing page.
+ * Contains branding, navigation links, and social media icons.
+ */
 export const Footer = () => {
   return (
     <footer>

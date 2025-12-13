@@ -1,7 +1,10 @@
 import MenuIcon from '@/assets/icon-menu.svg'
 import Logo from '@/assets/svg/logo.svg'
 import Button from '@/components/Button'
-
+/**
+ * Header component for StablePay landing page.
+ * Displays the logo, navigation links, and primary call-to-action.
+ */
 export const Header = () => {
   return (
     <header className="py-4 border-b border-white/15 md:border-none sticky top-0 z-10">
