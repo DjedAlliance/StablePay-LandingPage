@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import { Inter, Fraunces, Caudex } from 'next/font/google'
-import { twMerge } from 'tailwind-merge'
 import './globals.css'
 
 const inter = Inter({
@@ -26,24 +25,31 @@ const caudex = Caudex({
 export const metadata: Metadata = {
   title: 'StablePay Landing Page',
   description: 'A landing page for StablePay',
+  icons: {
+    icon: '/favicon.ico',
+  },
 }
 
+/**
+ * Provides the application's root HTML structure and global styling, including font variables and base layout classes.
+ *
+ * @param children - The page content to render inside the layout's main scroll container.
+ * @returns The root JSX element containing `<html>`, `<body>` (with global font and theme classes), and a `<main>` container that wraps `children`.
+ */
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode
-}>) {
+}) {
   return (
     <html lang="en">
       <body
-        className={twMerge(
-          inter.variable,
-          fraunces.variable,
-          caudex.variable,
-          'font-inter bg-black text-white antialiased'
-        )}
+        className={`${inter.variable} ${fraunces.variable} ${caudex.variable} font-inter bg-black text-white antialiased`}
       >
-        {children}
+        {/* Root scroll container */}
+        <main className="relative min-h-screen overflow-x-hidden">
+          {children}
+        </main>
       </body>
     </html>
   )
