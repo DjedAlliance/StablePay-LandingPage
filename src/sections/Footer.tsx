@@ -1,5 +1,6 @@
 import XSocial from '@/assets/social-x.svg'
 import YTSocial from '@/assets/social-youtube.svg'
+import GitHubSvg from '@/assets/svg/github.svg'
 
 export const Footer = () => {
   return (
@@ -27,6 +28,9 @@ export const Footer = () => {
             </nav>
             <div className="flex gap-5 lg:flex-1 lg:justify-end">
               <XSocial className="text-white/40 hover:text-white transition" />
+              <a href="https://github.com/DjedAlliance/StablePay-LandingPage" target="_blank" rel="noopener noreferrer" aria-label="GitHub Repository">
+                <GitHubSvg className="text-white/40 hover:text-white transition" />
+              </a>
               <YTSocial className="text-white/40 hover:text-white transition" />
             </div>
           </div>
