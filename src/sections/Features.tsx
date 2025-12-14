@@ -69,6 +69,15 @@ const FeatureTab = (props: (typeof tabs)[number] & ComponentPropsWithoutRef<'div
       className="border border-white/15 flex p-2 sm:p-2.5 rounded-xl gap-2 sm:gap-2.5 items-center lg:flex-1 relative cursor-pointer"
       ref={tabRef}
       onClick={props.onClick}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault()
+          props.onClick?.(e as unknown as React.MouseEvent<HTMLDivElement>)
+        }
+      }}
+      role="tab"
+      tabIndex={0}
+      aria-selected={props.selected}
     >
       {props.selected && (
         <motion.div
@@ -130,7 +139,8 @@ export const Features = () => {
 
   return (
     <motion.section
-      className="py-12 sm:py-16 md:py-24 bg-black relative overflow-visible"
+      id="features"
+      className="py-12 sm:py-16 md:py-24 bg-black relative overflow-visible scroll-mt-20"
       style={{
         backgroundImage: `url(${StarsBg.src})`,
         backgroundPositionY: starsBackgroundY,

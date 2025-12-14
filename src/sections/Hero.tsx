@@ -15,6 +15,7 @@ export const Hero = () => {
 
   return (
     <motion.section
+      id="hero"
       ref={sectionRef}
       className="h-[420px] sm:h-[492px] md:h-[800px] flex items-center overflow-hidden relative [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]"
       style={{
@@ -109,7 +110,7 @@ export const Hero = () => {
           An open-source SDK enabling merchants to accept payments in Djed stablecoins
         </p>
         <div className="flex justify-center mt-5 md:mt-7 mb-4 md:mb-5">
-          <Button>Get Started </Button>
+          <Button>Get Started</Button>
         </div>
       </div>
     </motion.section>
