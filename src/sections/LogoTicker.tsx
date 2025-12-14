@@ -10,7 +10,7 @@ export const LogoTicker = () => {
   ]
 
   return (
-    <section className="py-12 sm:py-16 md:py-24">
+    <section id="developers" className="py-12 sm:py-16 md:py-24 scroll-mt-20">
       <div className="container px-4 sm:px-6 flex flex-col sm:flex-row items-center gap-4 sm:gap-8">
         {/* Static "Powered by" Text */}
         <h2 className="text-sm sm:text-base md:text-lg lg:text-xl font-medium whitespace-nowrap text-center sm:text-left">
@@ -29,15 +29,15 @@ export const LogoTicker = () => {
             }}
           >
             {items.map((item, index) => (
-              <div key={index} className="flex items-center gap-2">
-                <div className="h-5 w-5 sm:h-6 sm:w-6 bg-[#FF863B] rounded"></div>
+              <div key={`${item.label}-${index}`} className="flex items-center gap-2">
+                <div className="h-5 w-5 sm:h-6 sm:w-6 bg-[#FF863B] rounded" aria-hidden="true"></div>
                 <span className="text-xs sm:text-sm font-medium text-white">{item.label}</span>
               </div>
             ))}
             {/* Repeat items for seamless looping */}
             {items.map((item, index) => (
-              <div key={`${index}-repeat`} className="flex items-center gap-2">
-                <div className="h-5 w-5 sm:h-6 sm:w-6 bg-[#FF863B] rounded"></div>
+              <div key={`${item.label}-${index}-repeat`} className="flex items-center gap-2">
+                <div className="h-5 w-5 sm:h-6 sm:w-6 bg-[#FF863B] rounded" aria-hidden="true"></div>
                 <span className="text-xs sm:text-sm font-medium text-white">{item.label}</span>
               </div>
             ))}

@@ -27,7 +27,6 @@ const config: Config = {
     extend: {
       fontFamily: {
         inter: ['var(--font-inter)'],
-        fraunces: ['var(--font-fraunces)', 'serif'],
         caudex: ['var(--font-caudex)', 'serif'],
       },
     },

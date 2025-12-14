@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter, Fraunces, Caudex } from 'next/font/google'
+import { Inter, Caudex } from 'next/font/google'
 import { twMerge } from 'tailwind-merge'
 import './globals.css'
 
@@ -7,13 +7,6 @@ const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
   display: 'swap',
-})
-
-const fraunces = Fraunces({
-  subsets: ['latin'],
-  variable: '--font-fraunces',
-  display: 'swap',
-  weight: ['400', '500', '600', '700'],
 })
 
 const caudex = Caudex({
@@ -34,11 +27,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body
         className={twMerge(
           inter.variable,
-          fraunces.variable,
           caudex.variable,
           'font-inter bg-black text-white antialiased'
         )}
