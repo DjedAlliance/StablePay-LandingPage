@@ -1,0 +1,16 @@
+{
+  "name": "StablePay",
+  "short_name": "StablePay",
+  "description": "An open-source SDK enabling merchants to accept payments in Djed stablecoins",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#FF863B",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ]
+}
