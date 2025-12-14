@@ -46,11 +46,11 @@ export const CallToAction = () => {
   const maskImage = useMotionTemplate`radial-gradient(50% 50% at ${mouseX}px ${mouseY}px, black, transparent)`
 
   return (
-    <section ref={sectionRef} className="py-20 md:py-24">
-      <div className="container">
+    <section ref={sectionRef} className="py-12 sm:py-16 md:py-24">
+      <div className="container px-4 sm:px-6">
         <motion.div
           ref={borderedDivRef}
-          className="border border-white/15 py-24 rounded-xl overflow-hidden relative group"
+          className="border border-white/15 py-12 sm:py-16 md:py-24 rounded-xl overflow-hidden relative group"
           animate={{
             backgroundPositionX: startBg.width,
           }}
@@ -77,15 +77,15 @@ export const CallToAction = () => {
               backgroundImage: `url(${gridLines.src})`,
             }}
           ></motion.div>
-          <div className="relative">
-            <h2 className="text-5xl md:text-6xl font-medium max-w-sm mx-auto tracking-tighter text-center">
+          <div className="relative px-4 sm:px-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium max-w-xs sm:max-w-sm mx-auto tracking-tighter text-center">
               Redefining the Future of Stable Payments.
             </h2>
-            <p className="text-lg md:text-xl max-w-xs mx-auto text-center text-white/70 px-4 mt-5 tracking-tight">
+            <p className="text-base sm:text-lg md:text-xl max-w-xs mx-auto text-center text-white/70 mt-4 sm:mt-5 tracking-tight">
               Accept Djed stablecoins and empower your business with a reliable, decentralized payment solution.
             </p>
 
-            <div className="mt-8 flex justify-center">
+            <div className="mt-6 sm:mt-8 flex justify-center">
               <Button>Integrate StablePay Today!</Button>
             </div>
           </div>

@@ -16,7 +16,7 @@ export const Hero = () => {
   return (
     <motion.section
       ref={sectionRef}
-      className="h-[492px] md:h-[800px] flex items-center overflow-visible relative [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]"
+      className="h-[420px] sm:h-[492px] md:h-[800px] flex items-center overflow-hidden relative [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]"
       style={{
         backgroundImage: `url(${StarsBg.src})`,
         backgroundPositionY: backgroundPositionY,
@@ -48,7 +48,7 @@ export const Hero = () => {
           duration: 60,
           ease: 'linear',
         }}
-        className="absolute h-[244px] w-[244px] md:h-[680px] md:w-[680px] border border-white/40 rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+        className="absolute h-[180px] w-[180px] sm:h-[244px] sm:w-[244px] md:h-[680px] md:w-[680px] border border-white/40 rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
       >
         <div className="absolute h-3 w-3 left-0 bg-white/50 rounded-full top-1/2 -translate-x-1/2 -translate-y-1/2"></div>
         <div className="absolute h-3 w-3 left-1/2 bg-white/50 rounded-full top-0 -translate-x-1/2 -translate-y-1/2"></div>
@@ -72,7 +72,7 @@ export const Hero = () => {
           duration: 60,
           ease: 'linear',
         }}
-        className="absolute h-[544px] w-[544px] md:h-[980px] md:w-[980px] rounded-full border border-dashed border-orange-400 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+        className="absolute h-[320px] w-[320px] sm:h-[400px] sm:w-[400px] md:h-[980px] md:w-[980px] rounded-full border border-dashed border-orange-400 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
       ></motion.div>
       {/* End Ring 2 */}
 
@@ -90,25 +90,25 @@ export const Hero = () => {
           duration: 60,
           ease: 'linear',
         }}
-        className="absolute h-[644px] w-[644px] md:h-[1180px] md:w-[1180px] rounded-full border border-white/50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+        className="absolute h-[400px] w-[400px] sm:h-[500px] sm:w-[500px] md:h-[1180px] md:w-[1180px] rounded-full border border-white/50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
       >
         <div className="absolute h-3 w-3 left-0 bg-white/50 rounded-full top-1/2 -translate-x-1/2 -translate-y-1/2"></div>
         <div className="absolute h-3 w-3 left-full bg-white/50 rounded-full top-1/2 -translate-x-1/2 -translate-y-1/2"></div>
       </motion.div>
       {/* End Ring 3 */}
 
-      <div className="container relative mt-16 -mt-16">
-        <p className="font-caudex text-2xl max-w-xl mx-auto text-orange-100/70 mb-5 text-center tracking-tight italic">
+      <div className="container relative mt-8 md:mt-16 px-4 sm:px-6">
+        <p className="font-caudex text-base sm:text-lg md:text-2xl max-w-xl mx-auto text-orange-100/70 mb-3 md:mb-5 text-center tracking-tight italic">
           ✨ Freeing merchants, redefining payments ✨
         </p>
 
-        <h1 className="font-inter text-8xl md:text-[135px] md:leading-none tracking-tighter bg-gradient-to-br from-[#F7941D] via-[#F57C00] to-[#EF6C00] text-transparent bg-clip-text text-center pb-4">
+        <h1 className="font-inter text-5xl sm:text-6xl md:text-8xl lg:text-[135px] md:leading-none tracking-tighter bg-gradient-to-br from-[#F7941D] via-[#F57C00] to-[#EF6C00] text-transparent bg-clip-text text-center pb-2 md:pb-4">
           StablePay
         </h1>
-        <p className="font-caudex text-2xl max-w-xl mx-auto text-orange-100/95 mt-5 text-center tracking-tight">
+        <p className="font-caudex text-base sm:text-lg md:text-2xl max-w-xs sm:max-w-md md:max-w-xl mx-auto text-orange-100/95 mt-3 md:mt-5 text-center tracking-tight px-2">
           An open-source SDK enabling merchants to accept payments in Djed stablecoins
         </p>
-        <div className="flex justify-center mt-7 mb-5">
+        <div className="flex justify-center mt-5 md:mt-7 mb-4 md:mb-5">
           <Button>Get Started </Button>
         </div>
       </div>
