@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Light mode helper: when the page has the `light` class, apply these utilities */
+.light {
+	@apply bg-white text-black;
+}
+
+/* Smooth color transitions when switching themes */
+html, body {
+	@apply transition-colors duration-200;
+}

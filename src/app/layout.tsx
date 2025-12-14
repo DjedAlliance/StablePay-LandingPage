@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter, Fraunces, Caudex } from 'next/font/google'
 import { twMerge } from 'tailwind-merge'
 import './globals.css'
+import ThemeToggle from '../components/ThemeToggle'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -40,9 +41,10 @@ export default function RootLayout({
           inter.variable,
           fraunces.variable,
           caudex.variable,
-          'font-inter bg-black text-white antialiased'
+          'font-inter bg-black text-white antialiased transition-colors duration-200'
         )}
       >
+        <ThemeToggle />
         {children}
       </body>
     </html>
