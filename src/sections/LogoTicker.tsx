@@ -1,12 +1,15 @@
 'use client'
 import { motion } from 'framer-motion'
+import StabilityNexusLogo from '@/assets/StabilityNexus.png'
+import DjedAllianceLogo from '@/assets/djed-alliance.png'
+import Image from 'next/image'
 
 export const LogoTicker = () => {
   const items = [
-    { label: 'Stability Nexus' },
-    { label: 'Djed Alliance' },
-    { label: 'Stability Nexus' },
-    { label: 'Djed Alliance' },
+    { label: 'Stability Nexus', logo: StabilityNexusLogo },
+    { label: 'Djed Alliance', logo: DjedAllianceLogo },
+    { label: 'Stability Nexus', logo: StabilityNexusLogo },
+    { label: 'Djed Alliance', logo: DjedAllianceLogo },
   ]
 
   return (
@@ -21,23 +24,17 @@ export const LogoTicker = () => {
           <motion.div
             className="flex flex-none gap-8 sm:gap-14 pr-8 sm:pr-14"
             initial={{ translateX: '0%' }}
-            animate={{ translateX: '-100%' }}
+            animate={{ translateX: '-50%' }}
             transition={{
               repeat: Infinity,
-              duration: 10,
+              duration: 5,
               ease: 'linear',
             }}
           >
-            {items.map((item, index) => (
+            {/* Render items twice for seamless looping */}
+            {[...items, ...items].map((item, index) => (
               <div key={index} className="flex items-center gap-2">
-                <div className="h-5 w-5 sm:h-6 sm:w-6 bg-[#FF863B] rounded"></div>
-                <span className="text-xs sm:text-sm font-medium text-white">{item.label}</span>
-              </div>
-            ))}
-            {/* Repeat items for seamless looping */}
-            {items.map((item, index) => (
-              <div key={`${index}-repeat`} className="flex items-center gap-2">
-                <div className="h-5 w-5 sm:h-6 sm:w-6 bg-[#FF863B] rounded"></div>
+                <Image src={item.logo} alt={item.label} className="h-5 w-5 sm:h-6 sm:w-6 object-contain" width={24} height={24} />
                 <span className="text-xs sm:text-sm font-medium text-white">{item.label}</span>
               </div>
             ))}
