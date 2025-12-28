@@ -1,8 +1,16 @@
+'use client'
 import MenuIcon from '@/assets/icon-menu.svg'
 import Logo from '@/assets/logo.svg'
 import Button from '@/components/Button'
 
 export const Header = () => {
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault()
+    const element = document.getElementById(id)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }
   return (
     <header className="py-3 sm:py-4 border-b border-white/15 md:border-none sticky top-0 z-10">
       <div className="absolute inset-0 backdrop-blur -z-10 md:hidden"></div>
@@ -14,10 +22,10 @@ export const Header = () => {
           </div>
           <div className="hidden md:block">
             <nav className="flex gap-4 lg:gap-8 text-sm">
-              <a href="#" className="text-white/70 hover:text-white transition">
+              <a href="#features" onClick={(e) => handleScroll(e, 'features')} className="text-white/70 hover:text-white transition">
                 Features
               </a>
-              <a href="#" className="text-white/70 hover:text-white transition">
+              <a href="#developer-guide" onClick={(e) => handleScroll(e, 'developer-guide')} className="text-white/70 hover:text-white transition">
                 Developers Guide
               </a>
               <a href="#" className="text-white/70 hover:text-white transition">
