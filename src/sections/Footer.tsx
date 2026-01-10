@@ -13,22 +13,26 @@ export const Footer = () => {
               <div className="font-medium text-sm sm:text-base">StablePay</div>
             </div>
             <nav className="flex flex-wrap justify-center gap-x-4 gap-y-2 sm:gap-4 w-full sm:w-auto lg:flex-1 lg:justify-center">
-              <a href="#" className="text-white/70 hover:text-white text-xs sm:text-sm transition">
+              <a href="https://docs.stability.nexus/about-us/the-djed-alliance" className="text-white/70 hover:text-white text-xs sm:text-sm transition">
                 Features
               </a>
-              <a href="#" className="text-white/70 hover:text-white text-xs sm:text-sm transition">
+              <a href="https://docs.stability.nexus/about-us/the-djed-alliance" className="text-white/70 hover:text-white text-xs sm:text-sm transition">
                 Docs
               </a>
-              <a href="#" className="text-white/70 hover:text-white text-xs sm:text-sm transition">
+              <a href="https://medium.com/djed-alliance" className="text-white/70 hover:text-white text-xs sm:text-sm transition">
                 Blog
               </a>
-              <a href="#" className="text-white/70 hover:text-white text-xs sm:text-sm transition">
+              <a href="https://github.com/DjedAlliance" className="text-white/70 hover:text-white text-xs sm:text-sm transition">
                 Github
               </a>
             </nav>
             <div className="flex gap-4 sm:gap-5 justify-center w-full sm:w-auto lg:flex-1 lg:justify-end">
-              <XSocial className="text-white/40 hover:text-white transition w-5 h-5 sm:w-6 sm:h-6" />
-              <YTSocial className="text-white/40 hover:text-white transition w-5 h-5 sm:w-6 sm:h-6" />
+              <a href={"https://x.com/DjedAlliance"}>
+                <XSocial className="text-white/40 hover:text-white transition w-5 h-5 sm:w-6 sm:h-6" />
+              </a>
+              <a href={"https://www.youtube.com/watch?v=v_9NHSBhWvs&t=6s"}>
+                <YTSocial className="text-white/40 hover:text-white transition w-5 h-5 sm:w-6 sm:h-6" />
+              </a>
             </div>
           </div>
         </div>
