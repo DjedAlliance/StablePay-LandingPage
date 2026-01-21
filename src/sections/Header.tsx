@@ -62,32 +62,46 @@ export const Header = () => {
 
       {/* Mobile Sidebar */}
       <aside
+        aria-hidden={!isMenuOpen}
         className={`fixed top-0 right-0 h-screen w-72 z-50
         bg-black/60 backdrop-blur-xl
         border-l border-white/15
         rounded-l-2xl
         px-6 pt-6
         transform transition-transform duration-300 ease-out
-        ${isMenuOpen ? "translate-x-0" : "translate-x-full"}`}
+        ${isMenuOpen ? "translate-x-0" : "translate-x-full pointer-events-none"}`}
       >
         {/* Close */}
         <button
           onClick={() => setIsMenuOpen(false)}
           className="text-white/70 hover:text-white text-xl mb-10"
           aria-label="Close menu"
+          tabIndex={isMenuOpen ? 0 : -1}
         >
           ✕
         </button>
 
         {/* Mobile nav */}
         <nav className="flex flex-col gap-6 text-sm">
-          <a className="text-white/80 hover:text-white transition" href="#">
+          <a
+            className="text-white/80 hover:text-white transition"
+            href="#"
+            tabIndex={isMenuOpen ? 0 : -1}
+          >
             Features
           </a>
-          <a className="text-white/80 hover:text-white transition" href="#">
+          <a
+            className="text-white/80 hover:text-white transition"
+            href="#"
+            tabIndex={isMenuOpen ? 0 : -1}
+          >
             Developers Guide
           </a>
-          <a className="text-white/80 hover:text-white transition" href="#">
+          <a
+            className="text-white/80 hover:text-white transition"
+            href="#"
+            tabIndex={isMenuOpen ? 0 : -1}
+          >
             Integration Docs
           </a>
         </nav>
