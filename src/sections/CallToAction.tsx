@@ -1,17 +1,15 @@
 'use client'
 
-import Button from '@/components/Button'
+import { Button } from '@/components/Button'
 import startBg from '@/assets/stars.png'
 import gridLines from '@/assets/grid-lines.png'
 import { RefObject, useEffect, useRef, useCallback } from 'react'
-import { useMotionTemplate, useMotionValue, useScroll, useTransform } from 'framer-motion'
-import { motion } from 'framer-motion'
+import { useMotionTemplate, useMotionValue, useScroll, useTransform, motion } from 'framer-motion'
 
 const useRelativeMousePosition = (to: RefObject<HTMLElement>) => {
   const mouseX = useMotionValue(0)
   const mouseY = useMotionValue(0)
 
-  // Memoize the function to prevent re-creation
   const updateMousePosition = useCallback(
     (event: MouseEvent) => {
       if (!to.current) return
@@ -19,14 +17,12 @@ const useRelativeMousePosition = (to: RefObject<HTMLElement>) => {
       mouseX.set(event.clientX - left)
       mouseY.set(event.clientY - top)
     },
-    [to, mouseX, mouseY] // Dependencies for useCallback
+    [to, mouseX, mouseY]
   )
 
   useEffect(() => {
     window.addEventListener('mousemove', updateMousePosition)
-    return () => {
-      window.removeEventListener('mousemove', updateMousePosition)
-    }
+    return () => window.removeEventListener('mousemove', updateMousePosition)
   }, [updateMousePosition])
 
   return [mouseX, mouseY]
@@ -51,32 +47,24 @@ export const CallToAction = () => {
         <motion.div
           ref={borderedDivRef}
           className="border border-white/15 py-12 sm:py-16 md:py-24 rounded-xl overflow-hidden relative group"
-          animate={{
-            backgroundPositionX: startBg.width,
-          }}
-          transition={{
-            repeat: Infinity,
-            duration: 60,
-            ease: 'linear',
-          }}
+          animate={{ backgroundPositionX: startBg.width }}
+          transition={{ repeat: Infinity, duration: 60, ease: 'linear' }}
           style={{
             backgroundImage: `url(${startBg.src})`,
-            backgroundPositionY: backgroundPositionY,
+            backgroundPositionY,
           }}
         >
           <div
             className="absolute inset-0 bg-[#FF863B] bg-blend-overlay [mask-image:radial-gradient(50%_50%_at_50%_35%,black,transparent)] group-hover:opacity-0 transition duration-300"
-            style={{
-              backgroundImage: `url(${gridLines.src})`,
-            }}
-          ></div>
+            style={{ backgroundImage: `url(${gridLines.src})` }}
+          />
           <motion.div
             className="absolute inset-0 bg-[#FF863B] bg-blend-overlay opacity-0 group-hover:opacity-100 transition duration-300"
             style={{
-              maskImage: maskImage,
+              maskImage,
               backgroundImage: `url(${gridLines.src})`,
             }}
-          ></motion.div>
+          />
           <div className="relative px-4 sm:px-6">
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium max-w-xs sm:max-w-sm mx-auto tracking-tighter text-center">
               Redefining the Future of Stable Payments.
@@ -84,7 +72,6 @@ export const CallToAction = () => {
             <p className="text-base sm:text-lg md:text-xl max-w-xs mx-auto text-center text-white/70 mt-4 sm:mt-5 tracking-tight">
               Accept Djed stablecoins and empower your business with a reliable, decentralized payment solution.
             </p>
-
             <div className="mt-6 sm:mt-8 flex justify-center">
               <Button>Integrate StablePay Today!</Button>
             </div>
