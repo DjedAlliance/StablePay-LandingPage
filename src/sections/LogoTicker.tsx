@@ -1,6 +1,10 @@
 'use client'
 import { motion } from 'framer-motion'
 
+/**
+ * LogoTicker displays a horizontal ticker of partner logos/labels.
+ * Used to show contributors or powered-by partners in a looping animation.
+ */
 export const LogoTicker = () => {
   const items = [
     { label: 'Stability Nexus' },

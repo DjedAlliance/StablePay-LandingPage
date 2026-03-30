@@ -102,6 +102,10 @@ const FeatureTab = (props: (typeof tabs)[number] & ComponentPropsWithoutRef<'div
   )
 }
 
+/**
+ * Features component — displays product feature tabs with animated preview.
+ * Provides interactive tabs that change the background animation and preview.
+ */
 export const Features = () => {
   const [selectedTab, setSelectedTab] = useState(0)
 
