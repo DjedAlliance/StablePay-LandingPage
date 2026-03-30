@@ -1,6 +1,7 @@
 import Logo from '@/assets/svg/logo.svg'
 import XSocial from '@/assets/social-x.svg'
 import YTSocial from '@/assets/social-youtube.svg'
+import Link from 'next/link'
 
 /**
  * Footer component displayed at the bottom of pages.
@@ -17,15 +18,15 @@ export const Footer = () => {
               <div className="font-medium text-sm sm:text-base text-black dark:text-white transition-colors duration-500">StablePay</div>
             </div>
             <nav className="flex flex-wrap justify-center gap-x-4 gap-y-2 sm:gap-4 w-full sm:w-auto lg:flex-1 lg:justify-center">
-              <a href="#" className="text-black/70 hover:text-black dark:text-white/70 dark:hover:text-white text-xs sm:text-sm transition-colors duration-300">
+              <Link href="/features" className="text-black/70 hover:text-black dark:text-white/70 dark:hover:text-white text-xs sm:text-sm transition-colors duration-300">
                 Features
-              </a>
-              <a href="#" className="text-black/70 hover:text-black dark:text-white/70 dark:hover:text-white text-xs sm:text-sm transition-colors duration-300">
+              </Link>
+              <Link href="/docs" className="text-black/70 hover:text-black dark:text-white/70 dark:hover:text-white text-xs sm:text-sm transition-colors duration-300">
                 Docs
-              </a>
-              <a href="#" className="text-black/70 hover:text-black dark:text-white/70 dark:hover:text-white text-xs sm:text-sm transition-colors duration-300">
+              </Link>
+              <Link href="/blog" className="text-black/70 hover:text-black dark:text-white/70 dark:hover:text-white text-xs sm:text-sm transition-colors duration-300">
                 Blog
-              </a>
+              </Link>
               <a
                 href="https://github.com/DjedAlliance/StablePay-LandingPage"
                 target="_blank"
