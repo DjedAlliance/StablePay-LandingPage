@@ -28,10 +28,20 @@ const useRelativeMousePosition = (to: RefObject<HTMLElement>) => {
   )
 
   useEffect(() => {
-    window.addEventListener('mousemove', updateMousePosition)
-    return () => {
-      window.removeEventListener('mousemove', updateMousePosition)
+    // Respect reduced motion preference and avoid attaching heavy listeners on touch devices
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0
+    if (!prefersReduced && !isTouch) {
+      const throttled = (e: MouseEvent) => {
+        // throttle to ~60fps using requestAnimationFrame
+        requestAnimationFrame(() => updateMousePosition(e))
+      }
+      window.addEventListener('mousemove', throttled)
+      return () => {
+        window.removeEventListener('mousemove', throttled)
+      }
     }
+    return () => {}
   }, [updateMousePosition])
 
   return [mouseX, mouseY]

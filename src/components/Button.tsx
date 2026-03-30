@@ -12,10 +12,10 @@ function Button(props: ButtonProps) {
 
   return (
     <button type={type} className={`${baseClass} ${className}`} style={mergedStyle} {...rest}>
-      <div className="absolute inset-0 rounded-lg">
-        <div className="rounded-lg border border-white/20 absolute inset-0 [mask-image:linear-gradient(to_bottom,black,transparent)]"></div>
-        <div className="rounded-lg border absolute inset-0 border-white/40 [mask-image:linear-gradient(to_top,black,transparent)]"></div>
-        <div className="absolute inset-0 shadow-[0px_0px_10px_0px_rgba(255,134,59,0.7)_inset] rounded-lg"></div>
+      <div className="absolute inset-0 rounded-lg pointer-events-none">
+        <div className="rounded-lg border border-white/20 absolute inset-0 [mask-image:linear-gradient(to_bottom,black,transparent)] pointer-events-none"></div>
+        <div className="rounded-lg border absolute inset-0 border-white/40 [mask-image:linear-gradient(to_top,black,transparent)] pointer-events-none"></div>
+        <div className="absolute inset-0 shadow-[0px_0px_10px_0px_rgba(255,134,59,0.7)_inset] rounded-lg pointer-events-none"></div>
       </div>
       <span>{children}</span>
     </button>

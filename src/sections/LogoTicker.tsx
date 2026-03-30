@@ -33,6 +33,7 @@ export const LogoTicker = () => {
               duration: 10,
               ease: 'linear',
             }}
+            style={{ pointerEvents: 'none' }}
           >
             {items.map((item, index) => {
               const LogoComp = item.Logo

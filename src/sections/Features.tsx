@@ -66,6 +66,8 @@ const FeatureTab = (props: (typeof tabs)[number] & ComponentPropsWithoutRef<'div
 
   const IconComponent = props.IconComponent
 
+  const prefersReduced = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
   return (
     <motion.div
       whileHover={{ scale: 1.05 }}

@@ -14,6 +14,9 @@ export const Hero = () => {
     offset: ['start end', 'end start'],
   })
 
+  // Respect reduced-motion preference
+  const prefersReduced = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
   const backgroundPositionY = useTransform(scrollYProgress, [0, 1], [-300, 300])
 
   return (

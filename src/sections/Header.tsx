@@ -41,12 +41,15 @@ export const Header = () => {
               </a>
             </nav>
           </div>
-          <div className="flex gap-2 sm:gap-4 items-center">
+            <div className="flex gap-2 sm:gap-4 items-center">
             <ThemeToggle />
             <Button>Try Now!</Button>
             <button
               onClick={() => setOpen(true)}
               aria-label="Open menu"
+              aria-expanded={open}
+              aria-controls="mobile-drawer"
+              onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setOpen(true) }}
               className="md:hidden p-2 w-8 h-8 sm:w-10 sm:h-10 text-black dark:text-white transition-colors duration-500 relative z-50"
             >
               <MenuIcon />
@@ -59,8 +62,8 @@ export const Header = () => {
       {open && (
         <>
           <div className="fixed inset-0 bg-black/40 z-40" onClick={() => setOpen(false)} />
-          <aside className="fixed top-0 right-0 h-full w-72 bg-white dark:bg-black z-50 shadow-lg">
-            <div className="p-6 flex flex-col h-full">
+          <aside id="mobile-drawer" className="fixed top-0 right-0 h-full w-72 bg-white dark:bg-black z-50 shadow-lg" role="dialog" aria-modal="true">
+            <div className="p-6 flex flex-col h-full" tabIndex={-1}>
               <div className="flex items-center justify-between mb-6">
                 <Logo className="h-8 w-8" />
                 <button onClick={() => setOpen(false)} aria-label="Close menu" className="text-black dark:text-white">Close</button>

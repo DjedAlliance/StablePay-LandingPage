@@ -30,7 +30,8 @@ export const metadata: Metadata = {
     siteName: 'StablePay',
     images: [
       {
-        url: '/og.png',
+        // public currently does not contain og.png; use repo logo as fallback
+        url: '/favicon.svg',
         width: 1200,
         height: 630,
         alt: 'StablePay — Open-source SDK',
@@ -42,7 +43,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'StablePay — Open-source SDK for Djed stablecoins',
     description: 'An open-source SDK enabling merchants to accept payments in Djed stablecoins.',
-    images: ['/og.png'],
+    images: ['/favicon.svg'],
   },
   robots: {
     index: true,
