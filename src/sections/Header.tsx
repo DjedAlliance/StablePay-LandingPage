@@ -3,7 +3,6 @@ import MenuIcon from '@/assets/icon-menu.svg'
 import Logo from '@/assets/svg/logo.svg'
 import Button from '@/components/Button'
 import ThemeToggle from '@/components/ThemeToggle'
-import Link from 'next/link'
 import { useState } from 'react'
 
 /**
@@ -64,9 +63,9 @@ export const Header = () => {
                 <button onClick={() => setOpen(false)} aria-label="Close menu" className="text-black dark:text-white">Close</button>
               </div>
               <nav className="flex flex-col gap-4">
-                <Link href="/features" onClick={() => setOpen(false)} className="text-black/70 hover:text-black dark:text-white/70 dark:hover:text-white transition-colors">Features</Link>
-                <Link href="/docs" onClick={() => setOpen(false)} className="text-black/70 hover:text-black dark:text-white/70 dark:hover:text-white transition-colors">Developers Guide</Link>
-                <Link href="/integration" onClick={() => setOpen(false)} className="text-black/70 hover:text-black dark:text-white/70 dark:hover:text-white transition-colors">Integration Docs</Link>
+                <a href="#features" onClick={(e) => { handleSmoothScroll(e, 'features'); setOpen(false) }} className="text-black/70 hover:text-black dark:text-white/70 dark:hover:text-white transition-colors">Features</a>
+                <a href="#developers" onClick={(e) => { handleSmoothScroll(e, 'developers'); setOpen(false) }} className="text-black/70 hover:text-black dark:text-white/70 dark:hover:text-white transition-colors">Developers Guide</a>
+                <a href="#features" onClick={(e) => { handleSmoothScroll(e, 'features'); setOpen(false) }} className="text-black/70 hover:text-black dark:text-white/70 dark:hover:text-white transition-colors">Integration Docs</a>
               </nav>
               <div className="mt-auto flex gap-3">
                 <ThemeToggle />
