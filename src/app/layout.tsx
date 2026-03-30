@@ -28,6 +28,12 @@ export const metadata: Metadata = {
   description: 'A landing page for StablePay',
 }
 
+// Configure theme color and viewport-related settings via export
+export const viewport = {
+  // Theme color used by some browsers and OS UI when using file-based favicons
+  themeColor: '#0ea5a1',
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
