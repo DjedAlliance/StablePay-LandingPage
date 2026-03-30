@@ -6,6 +6,9 @@ import { Features } from '@/sections/Features'
 import { CallToAction } from '@/sections/CallToAction'
 import { Footer } from '@/sections/Footer'
 
+/**
+ * Home — landing page root component assembling page sections.
+ */
 export default function Home() {
   return (
     <>
