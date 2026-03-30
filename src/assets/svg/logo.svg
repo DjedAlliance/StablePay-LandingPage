@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- StablePay logo SVG (simple scalable monogram) -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" role="img" aria-label="StablePay logo">
+  <defs>
+    <linearGradient id="lp" x1="0" x2="1">
+      <stop offset="0%" stop-color="#00b894" />
+      <stop offset="100%" stop-color="#0984e3" />
+    </linearGradient>
+  </defs>
+  <rect width="100" height="100" rx="18" fill="url(#lp)" />
+  <path d="M30 70 L30 38 C30 28 42 28 50 28 C58 28 70 32 70 44 C70 56 58 58 50 58 C42 58 36 56 36 52" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M50 28 L50 20" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
+</svg>
