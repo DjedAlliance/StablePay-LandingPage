@@ -27,6 +27,9 @@ export const Footer = () => {
               <a href="#features" onClick={(e) => { e.preventDefault(); const el = document.getElementById('features'); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }) }} className="text-black/70 hover:text-black dark:text-white/70 dark:hover:text-white text-xs sm:text-sm transition-colors duration-300">
                 Blog
               </a>
+              <a href="/about" className="text-black/70 hover:text-black dark:text-white/70 dark:hover:text-white text-xs sm:text-sm transition-colors duration-300">
+                About
+              </a>
               <a
                 href="https://github.com/DjedAlliance/StablePay-LandingPage"
                 target="_blank"
