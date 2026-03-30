@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- StablePay apple touch icon (SVG) -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="180" height="180">
+  <rect width="64" height="64" rx="12" fill="#00b894" />
+  <text x="50%" y="52%" font-family="Fraunces, serif" font-size="28" text-anchor="middle" fill="#fff">S</text>
+</svg>
