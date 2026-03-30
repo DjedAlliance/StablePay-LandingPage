@@ -1,7 +1,10 @@
 import MenuIcon from '@/assets/icon-menu.svg'
-import Logo from '@/assets/logo.svg'
+import Logo from '@/assets/svg/logo.svg'
 import Button from '@/components/Button'
 
+/**
+ * Header component — top navigation bar with logo and primary actions.
+ */
 export const Header = () => {
   return (
     <header className="py-3 sm:py-4 border-b border-white/15 md:border-none sticky top-0 z-10">

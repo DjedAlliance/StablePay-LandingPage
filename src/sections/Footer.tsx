@@ -1,7 +1,11 @@
-import Logo from '@/assets/logo.svg'
+import Logo from '@/assets/svg/logo.svg'
 import XSocial from '@/assets/social-x.svg'
 import YTSocial from '@/assets/social-youtube.svg'
 
+/**
+ * Footer component displayed at the bottom of pages.
+ * Shows the StablePay logo, navigation links and social icons.
+ */
 export const Footer = () => {
   return (
     <footer>
@@ -22,8 +26,13 @@ export const Footer = () => {
               <a href="#" className="text-white/70 hover:text-white text-xs sm:text-sm transition">
                 Blog
               </a>
-              <a href="#" className="text-white/70 hover:text-white text-xs sm:text-sm transition">
-                Github
+              <a
+                href="https://github.com/DjedAlliance/StablePay-LandingPage"
+                target="_blank"
+                rel="noreferrer"
+                className="text-white/70 hover:text-white text-xs sm:text-sm transition"
+              >
+                GitHub
               </a>
             </nav>
             <div className="flex gap-4 sm:gap-5 justify-center w-full sm:w-auto lg:flex-1 lg:justify-end">
