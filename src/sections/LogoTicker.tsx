@@ -1,12 +1,18 @@
-'use client'
+ 'use client'
 import { motion } from 'framer-motion'
+import StabilityNexusLogo from '@/assets/stability-nexus.svg'
+import DjedAllianceLogo from '@/assets/djed-alliance.svg'
 
+/**
+ * LogoTicker displays a horizontal ticker of partner logos/labels.
+ * Uses real SVG logos for partners when available.
+ */
 export const LogoTicker = () => {
   const items = [
-    { label: 'Stability Nexus' },
-    { label: 'Djed Alliance' },
-    { label: 'Stability Nexus' },
-    { label: 'Djed Alliance' },
+    { label: 'Stability Nexus', Logo: StabilityNexusLogo },
+    { label: 'Djed Alliance', Logo: DjedAllianceLogo },
+    { label: 'Stability Nexus', Logo: StabilityNexusLogo },
+    { label: 'Djed Alliance', Logo: DjedAllianceLogo },
   ]
 
   return (
@@ -28,19 +34,25 @@ export const LogoTicker = () => {
               ease: 'linear',
             }}
           >
-            {items.map((item, index) => (
-              <div key={index} className="flex items-center gap-2">
-                <div className="h-5 w-5 sm:h-6 sm:w-6 bg-[#FF863B] rounded"></div>
-                <span className="text-xs sm:text-sm font-medium text-white">{item.label}</span>
-              </div>
-            ))}
+            {items.map((item, index) => {
+              const LogoComp = item.Logo
+              return (
+                <div key={index} className="flex items-center gap-2 text-black dark:text-white transition-colors duration-500">
+                  <LogoComp className="h-5 w-5 sm:h-6 sm:w-6 fill-current text-black dark:text-white transition-colors duration-500" />
+                  <span className="text-xs sm:text-sm font-medium">{item.label}</span>
+                </div>
+              )
+            })}
             {/* Repeat items for seamless looping */}
-            {items.map((item, index) => (
-              <div key={`${index}-repeat`} className="flex items-center gap-2">
-                <div className="h-5 w-5 sm:h-6 sm:w-6 bg-[#FF863B] rounded"></div>
-                <span className="text-xs sm:text-sm font-medium text-white">{item.label}</span>
-              </div>
-            ))}
+            {items.map((item, index) => {
+              const LogoComp = item.Logo
+              return (
+                <div key={`${index}-repeat`} className="flex items-center gap-2 text-black dark:text-white transition-colors duration-500">
+                  <LogoComp className="h-5 w-5 sm:h-6 sm:w-6 fill-current text-black dark:text-white transition-colors duration-500" />
+                  <span className="text-xs sm:text-sm font-medium">{item.label}</span>
+                </div>
+              )
+            })}
           </motion.div>
         </div>
       </div>
