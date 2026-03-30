@@ -19,8 +19,39 @@ const caudex = Caudex({
 })
 
 export const metadata: Metadata = {
-  title: 'StablePay Landing Page',
-  description: 'A landing page for StablePay',
+  title: 'StablePay — Open-source SDK for Djed stablecoins',
+  description: 'An open-source SDK enabling merchants to accept payments in Djed stablecoins.',
+  keywords: ['StablePay', 'Djed', 'stablecoin', 'payments', 'SDK'],
+  authors: [{ name: 'Djed Alliance' }],
+  openGraph: {
+    title: 'StablePay — Open-source SDK for Djed stablecoins',
+    description: 'An open-source SDK enabling merchants to accept payments in Djed stablecoins.',
+    url: 'https://github.com/DjedAlliance/StablePay-LandingPage',
+    siteName: 'StablePay',
+    images: [
+      {
+        url: '/og.png',
+        width: 1200,
+        height: 630,
+        alt: 'StablePay — Open-source SDK',
+      },
+    ],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'StablePay — Open-source SDK for Djed stablecoins',
+    description: 'An open-source SDK enabling merchants to accept payments in Djed stablecoins.',
+    images: ['/og.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
 }
 
 // Configure theme color and viewport-related settings via export
