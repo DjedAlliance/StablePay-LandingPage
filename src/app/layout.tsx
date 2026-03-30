@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter, Fraunces, Caudex } from 'next/font/google'
+import { Inter, Caudex } from 'next/font/google'
 import { twMerge } from 'tailwind-merge'
 import './globals.css'
 
@@ -9,12 +9,7 @@ const inter = Inter({
   display: 'swap',
 })
 
-const fraunces = Fraunces({
-  subsets: ['latin'],
-  variable: '--font-fraunces',
-  display: 'swap',
-  weight: ['400', '500', '600', '700'],
-})
+// Removed unused Fraunces font to avoid unnecessary load
 
 const caudex = Caudex({
   subsets: ['latin'],
@@ -48,7 +43,6 @@ export default function RootLayout({
       <body
         className={twMerge(
           inter.variable,
-          fraunces.variable,
           caudex.variable,
           'font-inter antialiased bg-white text-black dark:bg-black dark:text-white'
         )}

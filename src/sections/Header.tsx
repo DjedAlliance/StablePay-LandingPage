@@ -11,7 +11,12 @@ import { useState } from 'react'
  */
 export const Header = () => {
   const [open, setOpen] = useState(false)
-
+  // Smooth scroll helper for same-page navigation
+  const handleSmoothScroll = (e: React.MouseEvent, id: string) => {
+    e.preventDefault()
+    const el = document.getElementById(id)
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
   return (
     <header className="py-3 sm:py-4 border-b border-black/10 dark:border-white/15 md:border-none sticky top-0 z-0 transition-colors duration-500 shadow-sm md:shadow-none dark:shadow-none">
       <div className="absolute inset-0 backdrop-blur-md -z-10 md:hidden bg-white/80 dark:bg-transparent transition-colors duration-500"></div>
@@ -23,13 +28,13 @@ export const Header = () => {
           </div>
           <div className="hidden md:block">
             <nav className="flex gap-4 lg:gap-8 text-sm">
-              <a href="#features" className="text-black/70 hover:text-black dark:text-white/70 dark:hover:text-white transition-colors duration-300">
+              <a href="#features" onClick={(e) => handleSmoothScroll(e, 'features')} className="text-black/70 hover:text-black dark:text-white/70 dark:hover:text-white transition-colors duration-300">
                 Features
               </a>
-              <a href="#" className="text-black/70 hover:text-black dark:text-white/70 dark:hover:text-white transition-colors duration-300">
+              <a href="#developers" onClick={(e) => handleSmoothScroll(e, 'developers')} className="text-black/70 hover:text-black dark:text-white/70 dark:hover:text-white transition-colors duration-300">
                 Developers Guide
               </a>
-              <a href="#" className="text-black/70 hover:text-black dark:text-white/70 dark:hover:text-white transition-colors duration-300">
+              <a href="#features" onClick={(e) => handleSmoothScroll(e, 'features')} className="text-black/70 hover:text-black dark:text-white/70 dark:hover:text-white transition-colors duration-300">
                 Integration Docs
               </a>
             </nav>

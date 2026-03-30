@@ -1,7 +1,7 @@
 import Logo from '@/assets/svg/logo.svg'
 import XSocial from '@/assets/social-x.svg'
 import YTSocial from '@/assets/social-youtube.svg'
-import Link from 'next/link'
+"use client"
 
 /**
  * Footer component displayed at the bottom of pages.
@@ -18,15 +18,15 @@ export const Footer = () => {
               <div className="font-medium text-sm sm:text-base text-black dark:text-white transition-colors duration-500">StablePay</div>
             </div>
             <nav className="flex flex-wrap justify-center gap-x-4 gap-y-2 sm:gap-4 w-full sm:w-auto lg:flex-1 lg:justify-center">
-              <Link href="/features" className="text-black/70 hover:text-black dark:text-white/70 dark:hover:text-white text-xs sm:text-sm transition-colors duration-300">
+              <a href="#features" onClick={(e) => { e.preventDefault(); const el = document.getElementById('features'); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }) }} className="text-black/70 hover:text-black dark:text-white/70 dark:hover:text-white text-xs sm:text-sm transition-colors duration-300">
                 Features
-              </Link>
-              <Link href="/docs" className="text-black/70 hover:text-black dark:text-white/70 dark:hover:text-white text-xs sm:text-sm transition-colors duration-300">
+              </a>
+              <a href="#developers" onClick={(e) => { e.preventDefault(); const el = document.getElementById('developers'); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }) }} className="text-black/70 hover:text-black dark:text-white/70 dark:hover:text-white text-xs sm:text-sm transition-colors duration-300">
                 Docs
-              </Link>
-              <Link href="/blog" className="text-black/70 hover:text-black dark:text-white/70 dark:hover:text-white text-xs sm:text-sm transition-colors duration-300">
+              </a>
+              <a href="#features" onClick={(e) => { e.preventDefault(); const el = document.getElementById('features'); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }) }} className="text-black/70 hover:text-black dark:text-white/70 dark:hover:text-white text-xs sm:text-sm transition-colors duration-300">
                 Blog
-              </Link>
+              </a>
               <a
                 href="https://github.com/DjedAlliance/StablePay-LandingPage"
                 target="_blank"
