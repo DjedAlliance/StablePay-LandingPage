@@ -1,14 +1,19 @@
+"use client"
 import MenuIcon from '@/assets/icon-menu.svg'
 import Logo from '@/assets/svg/logo.svg'
 import Button from '@/components/Button'
 import ThemeToggle from '@/components/ThemeToggle'
+import Link from 'next/link'
+import { useState } from 'react'
 
 /**
  * Header component — top navigation bar with logo and primary actions.
  */
 export const Header = () => {
+  const [open, setOpen] = useState(false)
+
   return (
-    <header className="py-3 sm:py-4 border-b border-black/10 dark:border-white/15 md:border-none sticky top-0 z-10 transition-colors duration-500 shadow-sm md:shadow-none dark:shadow-none">
+    <header className="py-3 sm:py-4 border-b border-black/10 dark:border-white/15 md:border-none sticky top-0 z-0 transition-colors duration-500 shadow-sm md:shadow-none dark:shadow-none">
       <div className="absolute inset-0 backdrop-blur-md -z-10 md:hidden bg-white/80 dark:bg-transparent transition-colors duration-500"></div>
       <div className="container px-4 sm:px-6">
         <div className="flex justify-between items-center md:border border-black/10 dark:border-white/15 md:p-2.5 rounded-xl max-w-2xl mx-auto relative transition-colors duration-500 md:shadow-lg md:dark:shadow-none bg-white/80 dark:bg-transparent backdrop-blur-md z-10">
@@ -32,10 +37,40 @@ export const Header = () => {
           <div className="flex gap-2 sm:gap-4 items-center">
             <ThemeToggle />
             <Button>Try Now!</Button>
-            <MenuIcon className="md:hidden w-5 h-5 sm:w-6 sm:h-6 text-black dark:text-white transition-colors duration-500" />
+            <button
+              onClick={() => setOpen(true)}
+              aria-label="Open menu"
+              className="md:hidden w-5 h-5 sm:w-6 sm:h-6 text-black dark:text-white transition-colors duration-500"
+            >
+              <MenuIcon />
+            </button>
           </div>
         </div>
       </div>
+
+      {/* Mobile drawer */}
+      {open && (
+        <>
+          <div className="fixed inset-0 bg-black/40 z-40" onClick={() => setOpen(false)} />
+          <aside className="fixed top-0 right-0 h-full w-72 bg-white dark:bg-black z-50 shadow-lg">
+            <div className="p-6 flex flex-col h-full">
+              <div className="flex items-center justify-between mb-6">
+                <Logo className="h-8 w-8" />
+                <button onClick={() => setOpen(false)} aria-label="Close menu" className="text-black dark:text-white">Close</button>
+              </div>
+              <nav className="flex flex-col gap-4">
+                <Link href="/features" onClick={() => setOpen(false)} className="text-black/70 hover:text-black dark:text-white/70 dark:hover:text-white transition-colors">Features</Link>
+                <Link href="/docs" onClick={() => setOpen(false)} className="text-black/70 hover:text-black dark:text-white/70 dark:hover:text-white transition-colors">Developers Guide</Link>
+                <Link href="/integration" onClick={() => setOpen(false)} className="text-black/70 hover:text-black dark:text-white/70 dark:hover:text-white transition-colors">Integration Docs</Link>
+              </nav>
+              <div className="mt-auto flex gap-3">
+                <ThemeToggle />
+                <Button>Try Now!</Button>
+              </div>
+            </div>
+          </aside>
+        </>
+      )}
     </header>
   )
 }
