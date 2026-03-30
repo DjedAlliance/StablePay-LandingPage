@@ -37,9 +37,9 @@ export const LogoTicker = () => {
             {items.map((item, index) => {
               const LogoComp = item.Logo
               return (
-                <div key={index} className="flex items-center gap-2">
-                  <LogoComp className="h-5 w-5 sm:h-6 sm:w-6" />
-                  <span className="text-xs sm:text-sm font-medium text-white">{item.label}</span>
+                <div key={index} className="flex items-center gap-2 text-black dark:text-white transition-colors duration-500">
+                  <LogoComp className="h-5 w-5 sm:h-6 sm:w-6 fill-current text-black dark:text-white transition-colors duration-500" />
+                  <span className="text-xs sm:text-sm font-medium">{item.label}</span>
                 </div>
               )
             })}
@@ -47,9 +47,9 @@ export const LogoTicker = () => {
             {items.map((item, index) => {
               const LogoComp = item.Logo
               return (
-                <div key={`${index}-repeat`} className="flex items-center gap-2">
-                  <LogoComp className="h-5 w-5 sm:h-6 sm:w-6" />
-                  <span className="text-xs sm:text-sm font-medium text-white">{item.label}</span>
+                <div key={`${index}-repeat`} className="flex items-center gap-2 text-black dark:text-white transition-colors duration-500">
+                  <LogoComp className="h-5 w-5 sm:h-6 sm:w-6 fill-current text-black dark:text-white transition-colors duration-500" />
+                  <span className="text-xs sm:text-sm font-medium">{item.label}</span>
                 </div>
               )
             })}

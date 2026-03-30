@@ -66,7 +66,7 @@ const FeatureTab = (props: (typeof tabs)[number] & ComponentPropsWithoutRef<'div
     <motion.div
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
-      className="border border-white/15 flex p-2 sm:p-2.5 rounded-xl gap-2 sm:gap-2.5 items-center lg:flex-1 relative cursor-pointer"
+      className="border border-black/15 dark:border-white/15 flex p-2 sm:p-2.5 rounded-xl gap-2 sm:gap-2.5 items-center lg:flex-1 relative cursor-pointer group transition-colors duration-500"
       ref={tabRef}
       onClick={props.onClick}
     >
@@ -83,9 +83,9 @@ const FeatureTab = (props: (typeof tabs)[number] & ComponentPropsWithoutRef<'div
       )}
       <motion.div
         whileHover={{ rotate: 10 }}
-        className="h-10 w-10 sm:h-12 sm:w-12 border border-white/15 rounded-lg inline-flex items-center justify-center bg-white/5 flex-shrink-0"
+        className="h-10 w-10 sm:h-12 sm:w-12 border border-black/15 dark:border-white/15 rounded-lg inline-flex items-center justify-center bg-black/5 dark:bg-white/5 flex-shrink-0 transition-colors duration-500"
       >
-        <IconComponent className="h-4 w-4 sm:h-5 sm:w-5 text-white/70" />
+        <IconComponent className="h-4 w-4 sm:h-5 sm:w-5 text-black/70 dark:text-white/70 transition-colors duration-500" />
       </motion.div>
       <div className="font-medium text-sm sm:text-base">{props.title}</div>
       {props.isNew && (
@@ -133,22 +133,26 @@ export const Features = () => {
   const starsBackgroundY = useTransform(scrollYProgress, [0, 1], [-300, 300])
 
   return (
-    <motion.section
+    <section
      id="features"
-      className="scroll-mt-24 py-12 sm:py-16 md:py-24 bg-black relative overflow-visible"
-      style={{
-        backgroundImage: `url(${StarsBg.src})`,
-        backgroundPositionY: starsBackgroundY,
-        backgroundSize: 'cover',
-      }}
+      className="scroll-mt-24 py-12 sm:py-16 md:py-24 bg-white dark:bg-black relative overflow-hidden transition-colors duration-500"
     >
-      <div className="container px-4 sm:px-6">
+      {/* Animated Background */}
+      <motion.div
+        className="absolute inset-0 pointer-events-none invert opacity-40 dark:invert-0 dark:opacity-100 transition-all duration-500"
+        style={{
+          backgroundImage: `url(${StarsBg.src})`,
+          backgroundPositionY: starsBackgroundY,
+          backgroundSize: 'cover',
+        }}
+      />
+      <div className="container px-4 sm:px-6 relative z-10">
         <motion.h2
           initial={{ y: 50, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8 }}
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-center tracking-tighter text-white"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-center tracking-tighter text-black dark:text-white transition-colors duration-500"
         >
           Easily integrate into your merchant website
         </motion.h2>
@@ -157,7 +161,7 @@ export const Features = () => {
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8 }}
-          className="text-white/70 text-base sm:text-lg md:text-xl max-w-2xl mx-auto tracking-tight text-center mt-3 sm:mt-5 px-2"
+          className="text-black/70 dark:text-white/70 text-base sm:text-lg md:text-xl max-w-2xl mx-auto tracking-tight text-center mt-3 sm:mt-5 px-2 transition-colors duration-500"
         >
           StablePay offers a seamless SDK for merchants to accept Djed stablecoins effortlessly.
         </motion.p>
@@ -173,10 +177,10 @@ export const Features = () => {
           whileInView={{ scale: 1, opacity: 1 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8 }}
-          className="border border-white/20 p-1.5 sm:p-2.5 rounded-xl mt-2 sm:mt-3"
+          className="border border-black/20 dark:border-white/20 p-1.5 sm:p-2.5 rounded-xl mt-2 sm:mt-3 transition-colors duration-500"
         >
           <motion.div
-            className="aspect-video bg-cover border border-white/20 rounded-lg"
+            className="aspect-video bg-cover border border-black/20 dark:border-white/20 rounded-lg transition-colors duration-500"
             style={{
               backgroundImage: `url(${ProductImage.src})`,
               backgroundPosition: backgroundPosition,
@@ -185,6 +189,6 @@ export const Features = () => {
           />
         </motion.div>
       </div>
-    </motion.section>
+    </section>
   )
 }

@@ -50,7 +50,7 @@ export default function RootLayout({
           inter.variable,
           fraunces.variable,
           caudex.variable,
-          'font-inter bg-black text-white antialiased'
+          'font-inter antialiased bg-white text-black dark:bg-black dark:text-white'
         )}
       >
         {children}
