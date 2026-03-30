@@ -1,7 +1,7 @@
+"use client"
 import Logo from '@/assets/svg/logo.svg'
 import XSocial from '@/assets/social-x.svg'
 import YTSocial from '@/assets/social-youtube.svg'
-"use client"
 
 /**
  * Footer component displayed at the bottom of pages.
