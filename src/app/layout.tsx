@@ -28,6 +28,16 @@ export const metadata: Metadata = {
   description: 'A landing page for StablePay',
 }
 
+// Configure theme color and viewport-related settings via export
+export const viewport = {
+  // Theme color used by some browsers and OS UI when using file-based favicons
+  themeColor: '#0ea5a1',
+}
+
+/**
+ * RootLayout wraps all pages and provides global styles and fonts.
+ * It also exports `viewport` and `metadata` used by Next.js.
+ */
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -40,7 +50,7 @@ export default function RootLayout({
           inter.variable,
           fraunces.variable,
           caudex.variable,
-          'font-inter bg-black text-white antialiased'
+          'font-inter antialiased bg-white text-black dark:bg-black dark:text-white'
         )}
       >
         {children}
