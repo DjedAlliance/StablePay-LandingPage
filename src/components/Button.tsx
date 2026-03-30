@@ -7,7 +7,7 @@ type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement>
 function Button(props: ButtonProps) {
   const { children, className = '', type = 'button', style, ...rest } = props
 
-  const baseClass = 'relative py-1.5 px-2.5 sm:py-2 sm:px-3 rounded-lg font-medium text-xs sm:text-sm bg-gradient-to-b from-[#331500] to-[#FF863B] text-white'
+  const baseClass = 'relative py-1.5 px-2.5 sm:py-2 sm:px-3 md:py-3 md:px-4 rounded-lg font-medium text-xs sm:text-sm md:text-base bg-gradient-to-b from-[#331500] to-[#FF863B] text-white transform-gpu transition-transform duration-200 hover:scale-105 active:scale-95 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-400'
   const mergedStyle = Object.assign({ boxShadow: '0 0 12px #FF863B' }, style || {})
 
   return (
