@@ -4,6 +4,9 @@ import Button from '@/components/Button'
 import StarsBg from '@/assets/stars.png'
 import { useRef } from 'react'
 
+/**
+ * Hero component — main landing hero with animated background and CTA.
+ */
 export const Hero = () => {
   const sectionRef = useRef(null)
   const { scrollYProgress } = useScroll({
@@ -14,22 +17,25 @@ export const Hero = () => {
   const backgroundPositionY = useTransform(scrollYProgress, [0, 1], [-300, 300])
 
   return (
-    <motion.section
+    <section
       ref={sectionRef}
       className="h-[420px] sm:h-[492px] md:h-[800px] flex items-center overflow-hidden relative [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]"
-      style={{
-        backgroundImage: `url(${StarsBg.src})`,
-        backgroundPositionY: backgroundPositionY,
-      }}
-      animate={{
-        backgroundPositionX: StarsBg.width,
-      }}
-      transition={{
-        repeat: Infinity,
-        ease: 'linear',
-        duration: 120,
-      }}
     >
+      <motion.div
+        className="absolute inset-0 -z-20 invert opacity-40 dark:invert-0 dark:opacity-100 transition-all duration-500"
+        style={{
+          backgroundImage: `url(${StarsBg.src})`,
+          backgroundPositionY: backgroundPositionY,
+        }}
+        animate={{
+          backgroundPositionX: StarsBg.width,
+        }}
+        transition={{
+          repeat: Infinity,
+          ease: 'linear',
+          duration: 120,
+        }}
+      />
       <div className="absolute inset-0 bg-[radial-gradient(90%_300%_at_50%_50%,rgba(255,134,59,0.2)_0%,transparent_50%)]"></div>
       <div className="absolute inset-0 bg-[radial-gradient(60%_60%_at_50%_0%,rgba(255,134,59,0.15)_0%,transparent_60%)]"></div>
       <div className="absolute inset-0 bg-[radial-gradient(40%_40%_at_50%_100%,rgba(255,134,59,0.1)_0%,transparent_70%)]"></div>
@@ -48,12 +54,12 @@ export const Hero = () => {
           duration: 60,
           ease: 'linear',
         }}
-        className="absolute h-[180px] w-[180px] sm:h-[244px] sm:w-[244px] md:h-[680px] md:w-[680px] border border-white/40 rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+        className="absolute h-[180px] w-[180px] sm:h-[244px] sm:w-[244px] md:h-[680px] md:w-[680px] border border-black/10 dark:border-white/40 rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
       >
-        <div className="absolute h-3 w-3 left-0 bg-white/50 rounded-full top-1/2 -translate-x-1/2 -translate-y-1/2"></div>
-        <div className="absolute h-3 w-3 left-1/2 bg-white/50 rounded-full top-0 -translate-x-1/2 -translate-y-1/2"></div>
-        <div className="absolute h-6 w-6 left-full border border-white/40 rounded-full top-1/2 -translate-x-1/2 -translate-y-1/2 inline-flex items-center justify-center">
-          <div className="h-3 w-3 bg-white/50 rounded-full"></div>
+        <div className="absolute h-3 w-3 left-0 bg-black/20 dark:bg-white/50 rounded-full top-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute h-3 w-3 left-1/2 bg-black/20 dark:bg-white/50 rounded-full top-0 -translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute h-6 w-6 left-full border border-black/10 dark:border-white/40 rounded-full top-1/2 -translate-x-1/2 -translate-y-1/2 inline-flex items-center justify-center">
+          <div className="h-3 w-3 bg-black/20 dark:bg-white/50 rounded-full"></div>
         </div>
       </motion.div>
       {/* End Ring 1 */}
@@ -72,7 +78,7 @@ export const Hero = () => {
           duration: 60,
           ease: 'linear',
         }}
-        className="absolute h-[320px] w-[320px] sm:h-[400px] sm:w-[400px] md:h-[980px] md:w-[980px] rounded-full border border-dashed border-orange-400 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+        className="absolute h-[320px] w-[320px] sm:h-[400px] sm:w-[400px] md:h-[980px] md:w-[980px] rounded-full border border-dashed border-orange-500/50 dark:border-orange-400 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
       ></motion.div>
       {/* End Ring 2 */}
 
@@ -90,28 +96,28 @@ export const Hero = () => {
           duration: 60,
           ease: 'linear',
         }}
-        className="absolute h-[400px] w-[400px] sm:h-[500px] sm:w-[500px] md:h-[1180px] md:w-[1180px] rounded-full border border-white/50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+        className="absolute h-[400px] w-[400px] sm:h-[500px] sm:w-[500px] md:h-[1180px] md:w-[1180px] rounded-full border border-black/10 dark:border-white/50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
       >
-        <div className="absolute h-3 w-3 left-0 bg-white/50 rounded-full top-1/2 -translate-x-1/2 -translate-y-1/2"></div>
-        <div className="absolute h-3 w-3 left-full bg-white/50 rounded-full top-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute h-3 w-3 left-0 bg-black/20 dark:bg-white/50 rounded-full top-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute h-3 w-3 left-full bg-black/20 dark:bg-white/50 rounded-full top-1/2 -translate-x-1/2 -translate-y-1/2"></div>
       </motion.div>
       {/* End Ring 3 */}
 
       <div className="container relative mt-8 md:mt-16 px-4 sm:px-6">
-        <p className="font-caudex text-base sm:text-lg md:text-2xl max-w-xl mx-auto text-orange-100/70 mb-3 md:mb-5 text-center tracking-tight italic">
+        <p className="font-caudex text-base sm:text-lg md:text-2xl max-w-xl mx-auto text-orange-950/70 dark:text-orange-100/70 mb-3 md:mb-5 text-center tracking-tight italic transition-colors duration-500">
           ✨ Freeing merchants, redefining payments ✨
         </p>
 
         <h1 className="font-inter text-5xl sm:text-6xl md:text-8xl lg:text-[135px] md:leading-none tracking-tighter bg-gradient-to-br from-[#F7941D] via-[#F57C00] to-[#EF6C00] text-transparent bg-clip-text text-center pb-2 md:pb-4">
           StablePay
         </h1>
-        <p className="font-caudex text-base sm:text-lg md:text-2xl max-w-xs sm:max-w-md md:max-w-xl mx-auto text-orange-100/95 mt-3 md:mt-5 text-center tracking-tight px-2">
+        <p className="font-caudex text-base sm:text-lg md:text-2xl max-w-xs sm:max-w-md md:max-w-xl mx-auto text-orange-950/90 dark:text-orange-100/95 mt-3 md:mt-5 text-center tracking-tight px-2 transition-colors duration-500">
           An open-source SDK enabling merchants to accept payments in Djed stablecoins
         </p>
         <div className="flex justify-center mt-5 md:mt-7 mb-4 md:mb-5">
           <Button>Get Started </Button>
         </div>
       </div>
-    </motion.section>
+    </section>
   )
 }
