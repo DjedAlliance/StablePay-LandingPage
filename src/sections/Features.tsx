@@ -32,6 +32,10 @@ const tabs = [
   },
 ]
 
+/**
+ * FeatureTab — individual interactive feature card used in `Features`.
+ * Accepts icon, title and selection state and animates when selected.
+ */
 const FeatureTab = (props: (typeof tabs)[number] & ComponentPropsWithoutRef<'div'> & { selected: boolean }) => {
   const tabRef = useRef<HTMLDivElement>(null)
   const xPercentage = useMotionValue(0)

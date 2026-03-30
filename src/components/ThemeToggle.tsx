@@ -4,6 +4,10 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Sun, Moon } from 'lucide-react';
 
+/**
+ * ThemeToggle — client component that toggles between light and dark themes.
+ * Persists selection to `localStorage` and applies the `dark` class to the root element.
+ */
 export default function ThemeToggle() {
   const [theme, setTheme] = useState<'light' | 'dark'>('dark');
   const [mounted, setMounted] = useState(false);

@@ -1,3 +1,7 @@
+/**
+ * Button — small styled button used throughout the site.
+ * Accepts children to be rendered inside the button element.
+ */
 function Button(props: React.PropsWithChildren) {
   return (
     <button

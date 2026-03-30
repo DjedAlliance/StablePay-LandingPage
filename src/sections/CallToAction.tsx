@@ -7,6 +7,11 @@ import { RefObject, useEffect, useRef, useCallback } from 'react'
 import { useMotionTemplate, useMotionValue, useScroll, useTransform } from 'framer-motion'
 import { motion } from 'framer-motion'
 
+/**
+ * Hook to track mouse position relative to a target element.
+ * Returns motion values `[mouseX, mouseY]` representing coordinates
+ * within the target element's bounding box.
+ */
 const useRelativeMousePosition = (to: RefObject<HTMLElement>) => {
   const mouseX = useMotionValue(0)
   const mouseY = useMotionValue(0)
