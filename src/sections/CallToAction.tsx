@@ -32,6 +32,10 @@ const useRelativeMousePosition = (to: RefObject<HTMLElement>) => {
   return [mouseX, mouseY]
 }
 
+/**
+ * CallToAction component — hero CTA block with animated background
+ * Displays a headline, supporting text, and primary action button.
+ */
 export const CallToAction = () => {
   const sectionRef = useRef<HTMLElement>(null)
   const borderedDivRef = useRef<HTMLDivElement>(null)

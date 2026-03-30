@@ -1,7 +1,6 @@
 import Logo from '@/assets/logo.svg'
 import XSocial from '@/assets/social-x.svg'
 import YTSocial from '@/assets/social-youtube.svg'
-import GitHubIcon from '@/assets/svg/github.svg'
 
 /**
  * Footer component displayed at the bottom of pages.
@@ -31,10 +30,9 @@ export const Footer = () => {
                 href="https://github.com/DjedAlliance/StablePay-LandingPage"
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-2 text-white/70 hover:text-white text-xs sm:text-sm transition"
+                className="text-white/70 hover:text-white text-xs sm:text-sm transition"
               >
-                <GitHubIcon className="w-5 h-5 sm:w-6 sm:h-6 text-white/40" />
-                <span className="sr-only">GitHub</span>
+                GitHub
               </a>
             </nav>
             <div className="flex gap-4 sm:gap-5 justify-center w-full sm:w-auto lg:flex-1 lg:justify-end">

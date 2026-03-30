@@ -4,6 +4,9 @@ import Button from '@/components/Button'
 import StarsBg from '@/assets/stars.png'
 import { useRef } from 'react'
 
+/**
+ * Hero component — main landing hero with animated background and CTA.
+ */
 export const Hero = () => {
   const sectionRef = useRef(null)
   const { scrollYProgress } = useScroll({
