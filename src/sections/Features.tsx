@@ -130,7 +130,8 @@ export const Features = () => {
 
   return (
     <motion.section
-      className="py-12 sm:py-16 md:py-24 bg-black relative overflow-visible"
+     id="features"
+      className="scroll-mt-24 py-12 sm:py-16 md:py-24 bg-black relative overflow-visible"
       style={{
         backgroundImage: `url(${StarsBg.src})`,
         backgroundPositionY: starsBackgroundY,
