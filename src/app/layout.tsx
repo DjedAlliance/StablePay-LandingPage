@@ -34,6 +34,10 @@ export const viewport = {
   themeColor: '#0ea5a1',
 }
 
+/**
+ * RootLayout wraps all pages and provides global styles and fonts.
+ * It also exports `viewport` and `metadata` used by Next.js.
+ */
 export default function RootLayout({
   children,
 }: Readonly<{
