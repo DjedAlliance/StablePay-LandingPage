@@ -3,7 +3,6 @@ import MenuIcon from '@/assets/icon-menu.svg'
 import Logo from '@/assets/svg/logo.svg'
 import Button from '@/components/Button'
 import ThemeToggle from '@/components/ThemeToggle'
-import Link from 'next/link'
 import { useState } from 'react'
 
 /**
@@ -31,15 +30,15 @@ export const Header = () => {
               <a href="#features" onClick={(e) => handleSmoothScroll(e, 'features')} className="text-black/70 hover:text-black dark:text-white/70 dark:hover:text-white transition-colors duration-300">
                 Features
               </a>
+              <a href="#about" onClick={(e) => handleSmoothScroll(e, 'about')} className="text-black/70 hover:text-black dark:text-white/70 dark:hover:text-white transition-colors duration-300">
+                About
+              </a>
               <a href="#developers" onClick={(e) => handleSmoothScroll(e, 'developers')} className="text-black/70 hover:text-black dark:text-white/70 dark:hover:text-white transition-colors duration-300">
                 Developers Guide
               </a>
               <a href="#features" onClick={(e) => handleSmoothScroll(e, 'features')} className="text-black/70 hover:text-black dark:text-white/70 dark:hover:text-white transition-colors duration-300">
                 Integration Docs
               </a>
-              <Link href="/about" className="text-black/70 hover:text-black dark:text-white/70 dark:hover:text-white transition-colors duration-300">
-                About
-              </Link>
             </nav>
           </div>
           <div className="flex gap-2 sm:gap-4 items-center">
@@ -68,9 +67,9 @@ export const Header = () => {
               </div>
               <nav className="flex flex-col gap-4">
                 <a href="#features" onClick={(e) => { handleSmoothScroll(e, 'features'); setOpen(false) }} className="text-black/70 hover:text-black dark:text-white/70 dark:hover:text-white transition-colors">Features</a>
+                <a href="#about" onClick={(e) => { handleSmoothScroll(e, 'about'); setOpen(false) }} className="text-black/70 hover:text-black dark:text-white/70 dark:hover:text-white transition-colors">About</a>
                 <a href="#developers" onClick={(e) => { handleSmoothScroll(e, 'developers'); setOpen(false) }} className="text-black/70 hover:text-black dark:text-white/70 dark:hover:text-white transition-colors">Developers Guide</a>
                 <a href="#features" onClick={(e) => { handleSmoothScroll(e, 'features'); setOpen(false) }} className="text-black/70 hover:text-black dark:text-white/70 dark:hover:text-white transition-colors">Integration Docs</a>
-                <a href="/about" onClick={() => setOpen(false)} className="text-black/70 hover:text-black dark:text-white/70 dark:hover:text-white transition-colors">About</a>
               </nav>
               <div className="mt-auto flex gap-3">
                 <ThemeToggle />

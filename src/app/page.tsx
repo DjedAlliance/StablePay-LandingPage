@@ -1,6 +1,7 @@
 import { Header } from '@/sections/Header'
 import { Hero } from '@/sections/Hero'
 import { LogoTicker } from '@/sections/LogoTicker'
+import { About } from '@/sections/About'
 import { Features } from '@/sections/Features'
 
 import { CallToAction } from '@/sections/CallToAction'
@@ -14,6 +15,7 @@ export default function Home() {
     <>
       <Header />
       <Hero />
+      <About />
       <LogoTicker />
       <Features />
 
