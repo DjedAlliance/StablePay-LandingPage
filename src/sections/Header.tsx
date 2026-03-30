@@ -44,7 +44,7 @@ export const Header = () => {
             <button
               onClick={() => setOpen(true)}
               aria-label="Open menu"
-              className="md:hidden w-5 h-5 sm:w-6 sm:h-6 text-black dark:text-white transition-colors duration-500"
+              className="md:hidden p-2 w-8 h-8 sm:w-10 sm:h-10 text-black dark:text-white transition-colors duration-500 relative z-50"
             >
               <MenuIcon />
             </button>
