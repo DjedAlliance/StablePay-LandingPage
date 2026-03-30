@@ -1,4 +1,4 @@
-import Logo from '@/assets/logo.svg'
+import Logo from '@/assets/svg/logo.svg'
 import XSocial from '@/assets/social-x.svg'
 import YTSocial from '@/assets/social-youtube.svg'
 

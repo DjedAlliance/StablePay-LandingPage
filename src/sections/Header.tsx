@@ -1,5 +1,5 @@
 import MenuIcon from '@/assets/icon-menu.svg'
-import Logo from '@/assets/logo.svg'
+import Logo from '@/assets/svg/logo.svg'
 import Button from '@/components/Button'
 
 /**
