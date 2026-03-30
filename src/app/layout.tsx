@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter, Fraunces, Caudex } from 'next/font/google'
+import { Inter, Caudex } from 'next/font/google'
 import { twMerge } from 'tailwind-merge'
 import './globals.css'
 
@@ -9,12 +9,7 @@ const inter = Inter({
   display: 'swap',
 })
 
-const fraunces = Fraunces({
-  subsets: ['latin'],
-  variable: '--font-fraunces',
-  display: 'swap',
-  weight: ['400', '500', '600', '700'],
-})
+// Removed unused Fraunces font to avoid unnecessary load
 
 const caudex = Caudex({
   subsets: ['latin'],
@@ -28,6 +23,16 @@ export const metadata: Metadata = {
   description: 'A landing page for StablePay',
 }
 
+// Configure theme color and viewport-related settings via export
+export const viewport = {
+  // Theme color used by some browsers and OS UI when using file-based favicons
+  themeColor: '#0ea5a1',
+}
+
+/**
+ * RootLayout wraps all pages and provides global styles and fonts.
+ * It also exports `viewport` and `metadata` used by Next.js.
+ */
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -38,9 +43,8 @@ export default function RootLayout({
       <body
         className={twMerge(
           inter.variable,
-          fraunces.variable,
           caudex.variable,
-          'font-inter bg-black text-white antialiased'
+          'font-inter antialiased bg-white text-black dark:bg-black dark:text-white'
         )}
       >
         {children}

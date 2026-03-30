@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="32" cy="32" r="28" fill="#1F2937" />
+  <polygon points="32,12 48,44 16,44" fill="#F59E0B" />
+  <g transform="translate(20 36)" fill="#fff" font-family="sans-serif" font-weight="700">
+    <text x="0" y="0" font-size="10">DA</text>
+  </g>
+</svg>
