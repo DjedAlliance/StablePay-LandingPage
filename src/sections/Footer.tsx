@@ -36,9 +36,45 @@ export const Footer = () => {
                 GitHub
               </a>
             </nav>
-            <div className="flex gap-4 sm:gap-5 justify-center w-full sm:w-auto lg:flex-1 lg:justify-end">
-              <XSocial className="text-black/40 hover:text-black dark:text-white/40 dark:hover:text-white transition-colors duration-300 w-5 h-5 sm:w-6 sm:h-6" />
-              <YTSocial className="text-black/40 hover:text-black dark:text-white/40 dark:hover:text-white transition-colors duration-300 w-5 h-5 sm:w-6 sm:h-6" />
+            <div className="flex gap-4 sm:gap-5 justify-center w-full sm:w-auto lg:flex-1 lg:justify-end items-center">
+              <a
+                href="https://twitter.com/DjedAlliance"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Djed Alliance on X (Twitter)"
+                className="text-black/40 hover:text-black dark:text-white/40 dark:hover:text-white transition-colors duration-300"
+              >
+                <XSocial className="w-5 h-5 sm:w-6 sm:h-6" />
+              </a>
+
+              <a
+                href="https://www.youtube.com"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Djed Alliance on YouTube"
+                className="text-black/40 hover:text-black dark:text-white/40 dark:hover:text-white transition-colors duration-300"
+              >
+                <YTSocial className="w-5 h-5 sm:w-6 sm:h-6" />
+              </a>
+
+              {/* Simple share links for discoverability */}
+              <a
+                href="https://twitter.com/intent/tweet?text=Check%20out%20StablePay%20-%20An%20open-source%20SDK&url=https://github.com/DjedAlliance/StablePay-LandingPage"
+                target="_blank"
+                rel="noreferrer"
+                className="text-black/70 hover:text-black dark:text-white/70 dark:hover:text-white text-xs sm:text-sm transition-colors duration-300 flex items-center gap-2"
+              >
+                Share
+              </a>
+
+              <a
+                href="https://www.linkedin.com/sharing/share-offsite/?url=https://github.com/DjedAlliance/StablePay-LandingPage"
+                target="_blank"
+                rel="noreferrer"
+                className="hidden sm:inline text-black/70 hover:text-black dark:text-white/70 dark:hover:text-white text-xs sm:text-sm transition-colors duration-300"
+              >
+                Share on LinkedIn
+              </a>
             </div>
           </div>
         </div>
