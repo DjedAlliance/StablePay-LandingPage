@@ -55,7 +55,7 @@ export const Footer = () => {
 
               {/* X (Twitter) */}
               <a
-                href="#"
+                href="https://x.com/DjedAlliance"
                 aria-label="X"
               >
                 <XSocial className="text-white/40 hover:text-white transition w-5 h-5 sm:w-6 sm:h-6" />
@@ -63,7 +63,7 @@ export const Footer = () => {
 
               {/* YouTube */}
               <a
-                href="#"
+                href="https://www.youtube.com/@StabilityNexus"
                 aria-label="YouTube"
               >
                 <YTSocial className="text-white/40 hover:text-white transition w-5 h-5 sm:w-6 sm:h-6" />
