@@ -1,4 +1,4 @@
- 'use client'
+"use client"
 import { motion } from 'framer-motion'
 import StabilityNexusLogo from '@/assets/stability-nexus.svg'
 import DjedAllianceLogo from '@/assets/djed-alliance.svg'

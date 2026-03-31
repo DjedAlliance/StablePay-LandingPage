@@ -9,8 +9,6 @@ const inter = Inter({
   display: 'swap',
 })
 
-// Removed unused Fraunces font to avoid unnecessary load
-
 const caudex = Caudex({
   subsets: ['latin'],
   variable: '--font-caudex',
