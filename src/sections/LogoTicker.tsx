@@ -34,6 +34,8 @@ export const LogoTicker = () => {
               ease: 'linear',
             }}
             style={{ pointerEvents: 'none' }}
+            aria-hidden="true"
+            role="presentation"
           >
             {items.map((item, index) => {
               const LogoComp = item.Logo

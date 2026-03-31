@@ -5,7 +5,7 @@ import React from 'react'
  */
 export const About = () => {
   return (
-    <section id="about" className="py-12 md:py-20">
+    <section id="about" className="scroll-mt-24 py-12 md:py-20">
       <div className="container px-4 sm:px-6">
         <div className="max-w-5xl mx-auto">
           <div className="bg-white/80 dark:bg-gray-900/60 border border-black/5 dark:border-white/5 rounded-2xl p-6 sm:p-10 shadow-md backdrop-blur-md">

@@ -1,5 +1,5 @@
-'use client'
-import { motion, useScroll, useTransform } from 'framer-motion'
+ 'use client'
+import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion'
 import Button from '@/components/Button'
 import StarsBg from '@/assets/stars.png'
 import { useRef } from 'react'
@@ -14,8 +14,8 @@ export const Hero = () => {
     offset: ['start end', 'end start'],
   })
 
-  // Respect reduced-motion preference
-  const prefersReduced = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  // Respect reduced-motion preference using framer-motion hook
+  const prefersReduced = useReducedMotion()
 
   const backgroundPositionY = useTransform(scrollYProgress, [0, 1], [-300, 300])
 
@@ -30,14 +30,12 @@ export const Hero = () => {
           backgroundImage: `url(${StarsBg.src})`,
           backgroundPositionY: backgroundPositionY,
         }}
-        animate={{
-          backgroundPositionX: StarsBg.width,
-        }}
-        transition={{
-          repeat: Infinity,
-          ease: 'linear',
-          duration: 120,
-        }}
+        {...(!prefersReduced
+          ? {
+              animate: { backgroundPositionX: StarsBg.width },
+              transition: { repeat: Infinity, ease: 'linear', duration: 120 },
+            }
+          : {})}
       />
       <div className="absolute inset-0 bg-[radial-gradient(90%_300%_at_50%_50%,rgba(255,134,59,0.2)_0%,transparent_50%)]"></div>
       <div className="absolute inset-0 bg-[radial-gradient(60%_60%_at_50%_0%,rgba(255,134,59,0.15)_0%,transparent_60%)]"></div>
@@ -49,14 +47,12 @@ export const Hero = () => {
           translateX: '-50%',
           translateY: '-50%',
         }}
-        animate={{
-          rotate: '1turn',
-        }}
-        transition={{
-          repeat: Infinity,
-          duration: 60,
-          ease: 'linear',
-        }}
+        {...(!prefersReduced
+          ? {
+              animate: { rotate: '1turn' },
+              transition: { repeat: Infinity, duration: 60, ease: 'linear' },
+            }
+          : {})}
         className="absolute h-[180px] w-[180px] sm:h-[244px] sm:w-[244px] md:h-[680px] md:w-[680px] border border-black/10 dark:border-white/40 rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
       >
         <div className="absolute h-3 w-3 left-0 bg-black/20 dark:bg-white/50 rounded-full top-1/2 -translate-x-1/2 -translate-y-1/2"></div>
@@ -73,14 +69,12 @@ export const Hero = () => {
           translateX: '-50%',
           translateY: '-50%',
         }}
-        animate={{
-          rotate: '-1turn',
-        }}
-        transition={{
-          repeat: Infinity,
-          duration: 60,
-          ease: 'linear',
-        }}
+        {...(!prefersReduced
+          ? {
+              animate: { rotate: '-1turn' },
+              transition: { repeat: Infinity, duration: 60, ease: 'linear' },
+            }
+          : {})}
         className="absolute h-[320px] w-[320px] sm:h-[400px] sm:w-[400px] md:h-[980px] md:w-[980px] rounded-full border border-dashed border-orange-500/50 dark:border-orange-400 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
       ></motion.div>
       {/* End Ring 2 */}
@@ -91,14 +85,12 @@ export const Hero = () => {
           translateX: '-50%',
           translateY: '-50%',
         }}
-        animate={{
-          rotate: '1turn',
-        }}
-        transition={{
-          repeat: Infinity,
-          duration: 60,
-          ease: 'linear',
-        }}
+        {...(!prefersReduced
+          ? {
+              animate: { rotate: '1turn' },
+              transition: { repeat: Infinity, duration: 60, ease: 'linear' },
+            }
+          : {})}
         className="absolute h-[400px] w-[400px] sm:h-[500px] sm:w-[500px] md:h-[1180px] md:w-[1180px] rounded-full border border-black/10 dark:border-white/50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
       >
         <div className="absolute h-3 w-3 left-0 bg-black/20 dark:bg-white/50 rounded-full top-1/2 -translate-x-1/2 -translate-y-1/2"></div>

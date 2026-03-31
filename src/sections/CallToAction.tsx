@@ -32,13 +32,24 @@ const useRelativeMousePosition = (to: RefObject<HTMLElement>) => {
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0
     if (!prefersReduced && !isTouch) {
-      const throttled = (e: MouseEvent) => {
-        // throttle to ~60fps using requestAnimationFrame
-        requestAnimationFrame(() => updateMousePosition(e))
+      let rafId: number | null = null
+      let latestEvent: MouseEvent | null = null
+
+      const handler = (e: MouseEvent) => {
+        latestEvent = e
+        if (rafId === null) {
+          rafId = requestAnimationFrame(() => {
+            if (latestEvent) updateMousePosition(latestEvent)
+            rafId = null
+            latestEvent = null
+          })
+        }
       }
-      window.addEventListener('mousemove', throttled)
+
+      window.addEventListener('mousemove', handler)
       return () => {
-        window.removeEventListener('mousemove', throttled)
+        window.removeEventListener('mousemove', handler)
+        if (rafId !== null) cancelAnimationFrame(rafId)
       }
     }
     return () => {}
@@ -65,7 +76,7 @@ export const CallToAction = () => {
   const maskImage = useMotionTemplate`radial-gradient(50% 50% at ${mouseX}px ${mouseY}px, black, transparent)`
 
   return (
-    <section id="developers" ref={sectionRef} className="py-12 sm:py-16 md:py-24">
+    <section id="developers" ref={sectionRef} className="scroll-mt-24 py-12 sm:py-16 md:py-24">
       <div className="container px-4 sm:px-6">
         <motion.div
           ref={borderedDivRef}

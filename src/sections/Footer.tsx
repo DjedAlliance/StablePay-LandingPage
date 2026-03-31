@@ -48,7 +48,7 @@ export const Footer = () => {
               </a>
 
               <a
-                href="https://www.youtube.com"
+                href="https://www.youtube.com/@DjedAlliance"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Djed Alliance on YouTube"

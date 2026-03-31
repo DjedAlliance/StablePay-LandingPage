@@ -79,6 +79,7 @@ export default function RootLayout({
           'font-inter antialiased bg-white text-black dark:bg-black dark:text-white'
         )}
       >
+        <script dangerouslySetInnerHTML={{__html: `(function(){try{var s=localStorage.getItem('theme');var p=window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;var t=s|| (p? 'dark':'light'); if(t==='dark'){document.documentElement.classList.add('dark')}else{document.documentElement.classList.remove('dark')}}catch(e){}})();`}} />
         {children}
       </body>
     </html>

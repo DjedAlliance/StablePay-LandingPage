@@ -44,10 +44,12 @@ export default function ThemeToggle() {
 
   return (
     <button
+      type="button"
       onClick={toggleTheme}
+      aria-pressed={isDark}
+      aria-label={isDark ? 'Switch to light theme' : 'Switch to dark theme'}
       className={`relative flex items-center w-[60px] h-[32px] rounded-full p-1 transition-colors duration-500 ease-in-out border border-white/10
         ${isDark ? 'bg-white/10 shadow-[inset_0px_0px_10px_rgba(255,255,255,0.1)]' : 'bg-black/5 shadow-[inset_0px_0px_10px_rgba(0,0,0,0.05)]'}`}
-      aria-label="Toggle Theme"
       style={{
         WebkitTapHighlightColor: 'transparent',
       }}

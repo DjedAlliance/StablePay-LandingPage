@@ -8,6 +8,7 @@ import {
   useMotionValue,
   useScroll,
   useTransform,
+  useReducedMotion,
   ValueAnimationTransition,
 } from 'framer-motion'
 import { ComponentPropsWithoutRef, useEffect, useRef, useState } from 'react'
@@ -36,14 +37,15 @@ const tabs = [
  * FeatureTab — individual interactive feature card used in `Features`.
  * Accepts icon, title and selection state and animates when selected.
  */
-const FeatureTab = (props: (typeof tabs)[number] & ComponentPropsWithoutRef<'div'> & { selected: boolean }) => {
-  const tabRef = useRef<HTMLDivElement>(null)
+const FeatureTab = (props: (typeof tabs)[number] & ComponentPropsWithoutRef<'button'> & { selected: boolean }) => {
+  const tabRef = useRef<HTMLButtonElement>(null)
   const xPercentage = useMotionValue(0)
   const yPercentage = useMotionValue(0)
   const maskImage = useMotionTemplate`radial-gradient(80px 80px at ${xPercentage}% ${yPercentage}%, black, transparent)`
+  const prefersReduced = useReducedMotion()
 
   useEffect(() => {
-    if (!tabRef.current || !props.selected) return
+    if (!tabRef.current || !props.selected || prefersReduced) return
 
     xPercentage.set(0)
     yPercentage.set(0)
@@ -62,19 +64,21 @@ const FeatureTab = (props: (typeof tabs)[number] & ComponentPropsWithoutRef<'div
 
     animate(xPercentage, [0, 100, 100, 0, 0], options)
     animate(yPercentage, [0, 0, 100, 100, 0], options)
-  }, [props.selected, xPercentage, yPercentage])
+  }, [props.selected, xPercentage, yPercentage, prefersReduced])
 
   const IconComponent = props.IconComponent
 
   const prefersReduced = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
   return (
-    <motion.div
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
+    <motion.button
+      type="button"
+      whileHover={prefersReduced ? undefined : { scale: 1.05 }}
+      whileTap={prefersReduced ? undefined : { scale: 0.95 }}
       className="border border-black/15 dark:border-white/15 flex p-2 sm:p-2.5 rounded-xl gap-2 sm:gap-2.5 items-center lg:flex-1 relative cursor-pointer group transition-colors duration-500"
       ref={tabRef}
       onClick={props.onClick}
+      aria-pressed={props.selected}
     >
       {props.selected && (
         <motion.div
@@ -88,7 +92,7 @@ const FeatureTab = (props: (typeof tabs)[number] & ComponentPropsWithoutRef<'div
         />
       )}
       <motion.div
-        whileHover={{ rotate: 10 }}
+        whileHover={prefersReduced ? undefined : { rotate: 10 }}
         className="h-10 w-10 sm:h-12 sm:w-12 border border-black/15 dark:border-white/15 rounded-lg inline-flex items-center justify-center bg-black/5 dark:bg-white/5 flex-shrink-0 transition-colors duration-500"
       >
         <IconComponent className="h-4 w-4 sm:h-5 sm:w-5 text-black/70 dark:text-white/70 transition-colors duration-500" />
