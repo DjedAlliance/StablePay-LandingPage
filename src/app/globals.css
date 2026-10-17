@@ -6,7 +6,7 @@
   :root {
     --font-fallback: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 
-    /* Brand primitives — StablePay logo + Tectonic brand */
+    /* Brand primitives: StablePay logo + Tectonic brand */
     --sp-blue: #235efe;
     --sp-gold: #ffc822;
     --sp-ember: #fd6724;

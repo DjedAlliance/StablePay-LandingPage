@@ -7,7 +7,7 @@ const properties = [
   {
     icon: Anchor,
     title: 'The peg cannot break downward',
-    body: 'Stablecoins redeem at min(target price, reserve ÷ supply). Liabilities are bounded by the reserve as an accounting identity — not as a promise someone has to keep.',
+    body: 'Stablecoins redeem at min(target price, reserve ÷ supply). Because of that formula, the protocol can never owe more than it holds in reserve.',
     tone: 'bg-brand-50 text-brand-600',
   },
   {
@@ -30,7 +30,7 @@ export const Tectonic = () => (
       <SectionHeading
         eyebrow="The protocol underneath"
         title="Built on Tectonic, the stablecoin designed not to depeg."
-        description="StablePay settles against Tectonic — Stability Nexus’s successor to the Djed protocol. Three of its design choices are the reason a merchant can treat an incoming payment as final."
+        description="StablePay settles against Tectonic, the successor to the Djed protocol, developed by Stability Nexus. Three of its design choices let a merchant treat an incoming payment as final."
       />
 
       <div className="mt-14 grid gap-5 md:grid-cols-3">
@@ -57,8 +57,8 @@ export const Tectonic = () => (
               </p>
               <p className="mt-1 max-w-2xl text-sm leading-relaxed text-ink-500">
                 The protocol contracts are pre-audit and not yet deployed to a public network.
-                StablePay&rsquo;s Tectonic integration is finished and tested — today it runs against a
-                local deployment. We would rather say so here than surprise you later.
+                StablePay&rsquo;s Tectonic integration is finished and tested, and for now it runs
+                against a local deployment.
               </p>
             </div>
           </div>

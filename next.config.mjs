@@ -23,7 +23,21 @@ const nextConfig = {
         test: /\.svg$/i,
         issuer: fileLoaderRule.issuer,
         resourceQuery: { not: [...fileLoaderRule.resourceQuery.not, /url/] }, // exclude if *.svg?url
-        use: ['@svgr/webpack'],
+        use: [
+          {
+            loader: '@svgr/webpack',
+            options: {
+              // SVGO's default preset strips viewBox whenever it matches width/height
+              // (every 24x24 icon), which makes the icon crop instead of scale.
+              svgoConfig: {
+                plugins: [
+                  { name: 'preset-default', params: { overrides: { removeViewBox: false } } },
+                  'prefixIds',
+                ],
+              },
+            },
+          },
+        ],
       }
     )
 

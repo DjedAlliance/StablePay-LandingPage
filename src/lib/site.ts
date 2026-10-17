@@ -7,7 +7,9 @@ export const site = {
   tectonicApp: 'https://stabilitynexus.github.io/Tectonic-EVM-WebUI/',
   stabilityNexus: 'https://stability.nexus/',
   djedAlliance: 'https://djed.one/',
-  x: 'https://x.com/DjedAlliance',
+  x: 'https://x.com/StabilityNexus',
+  termsOfUse: 'https://github.com/StabilityNexus/Info/blob/main/TermsOfUse.md',
+  privacyNotice: 'https://github.com/StabilityNexus/Info/blob/main/PrivacyNotice.md',
   youtube: 'https://www.youtube.com/@StabilityNexus',
 } as const
 

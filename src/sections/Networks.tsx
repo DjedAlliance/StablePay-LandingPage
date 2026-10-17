@@ -33,7 +33,7 @@ export const Networks = () => (
       <SectionHeading
         eyebrow="Networks"
         title="Where StablePay runs."
-        description="The widget already handles all of these chains — connection, switching, pricing and both payment flows. What each one is waiting on is Tectonic’s own deployment."
+        description="The widget already supports wallet connection, network switching, pricing and both payment flows on each of these chains."
       />
 
       <div className="mt-14 grid gap-5 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)]">
@@ -82,8 +82,7 @@ export const Networks = () => (
             <h3 className="mt-5 text-[1.0625rem] font-semibold">You can try it today</h3>
             <p className="mt-2 text-[0.9375rem] leading-relaxed text-ink-500">
               Start a local chain, run one deploy script, and pay yourself through the widget against
-              a real Tectonic deployment on your own machine — both payment flows, plus the stressed
-              states a public testnet will not hand you on demand.
+              a Tectonic deployment on your own machine. Both payment flows work locally.
             </p>
             <div className="mt-5 rounded-xl bg-[#0B1730] px-4 py-3">
               <pre className="overflow-x-auto font-mono text-[0.75rem] leading-6 text-[#C9D4E8]">

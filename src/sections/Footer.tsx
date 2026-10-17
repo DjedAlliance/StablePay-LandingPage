@@ -34,6 +34,11 @@ const columns = [
   },
 ]
 
+const legal = [
+  { label: 'Terms of Use', href: site.termsOfUse },
+  { label: 'Privacy Notice', href: site.privacyNotice },
+]
+
 const socials = [
   { Icon: GitHubSvg, href: site.repo, label: 'GitHub' },
   { Icon: XSocial, href: site.x, label: 'X' },
@@ -47,8 +52,8 @@ export const Footer = () => (
         <div>
           <Logo />
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-ink-400">
-            An open-source widget for accepting Tectonic stablecoin payments — no processor, no
-            custody, no backend.
+            An open-source widget that lets merchants accept Tectonic stablecoin payments directly
+            from their customers&rsquo; wallets.
           </p>
           <div className="mt-6 flex gap-2">
             {socials.map(({ Icon, href, label }) => (
@@ -89,7 +94,23 @@ export const Footer = () => (
       </div>
 
       <div className="flex flex-col items-center justify-between gap-3 border-t border-line-soft py-6 text-xs text-ink-400 sm:flex-row">
-        <p>© {new Date().getFullYear()} StablePay · Djed Alliance &amp; Stability Nexus</p>
+        <div className="flex flex-col items-center gap-x-5 gap-y-2 sm:flex-row">
+          <p>© {new Date().getFullYear()} Stability Nexus</p>
+          <ul className="flex items-center gap-5">
+            {legal.map((link) => (
+              <li key={link.label}>
+                <a
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition hover:text-ink-900"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
         <p>Tectonic contracts are pre-audit and not yet deployed to a public network.</p>
       </div>
     </div>

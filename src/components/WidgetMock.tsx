@@ -17,7 +17,7 @@ const Row = ({ label, value, dotClass }: { label: string; value: string; dotClas
 )
 
 /**
- * A static illustration of the StablePay checkout dialog. Not interactive —
+ * A static illustration of the StablePay checkout dialog. Not interactive:
  * it exists to show the shape of the product, not to take a payment.
  */
 export const WidgetMock = () => (
@@ -60,10 +60,6 @@ export const WidgetMock = () => (
           <div className="flex items-center justify-between">
             <dt className="text-ink-400">Merchant receives</dt>
             <dd className="font-mono text-[0.8125rem] font-medium text-ink-900">25.00 SC</dd>
-          </div>
-          <div className="flex items-center justify-between">
-            <dt className="text-ink-400">Protocol + treasury fee</dt>
-            <dd className="font-mono text-[0.8125rem] text-ink-500">2.00%</dd>
           </div>
         </dl>
 

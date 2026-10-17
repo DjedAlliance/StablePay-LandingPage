@@ -62,7 +62,7 @@ export const CodeCard = ({ snippets }: { snippets: Snippet[] }) => {
       setCopied(true)
       setTimeout(() => setCopied(false), 1800)
     } catch {
-      /* clipboard blocked — the code is selectable either way */
+      /* clipboard blocked; the code is selectable either way */
     }
   }
 

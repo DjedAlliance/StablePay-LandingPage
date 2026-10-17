@@ -36,8 +36,8 @@ export const Hero = () => (
 
           <motion.p {...fade(0.12)} className="mt-6 max-w-xl text-lg leading-relaxed text-ink-500 md:text-xl">
             StablePay is a drop-in checkout widget that settles payments straight against Tectonic
-            contracts from your customer&rsquo;s browser. No backend, no custody, no middleman —
-            they sign one transaction and the stablecoins land in your wallet.
+            contracts from your customer&rsquo;s browser. There is no backend and no custody: your
+            customer signs one transaction and the stablecoins arrive in your wallet.
           </motion.p>
 
           <motion.div {...fade(0.18)} className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -53,8 +53,6 @@ export const Hero = () => (
             <span className="inline-flex items-center gap-1.5">
               <Github className="h-4 w-4" /> Open source
             </span>
-            <span className="hidden h-3 w-px bg-line sm:block" />
-            <span>Built by Stability Nexus &amp; the Djed Alliance</span>
           </motion.div>
         </div>
 

@@ -6,7 +6,7 @@ import { site } from '@/lib/site'
 const faqs = [
   {
     q: 'Do I need to run a backend?',
-    a: 'No. The widget runs entirely in your customer’s browser, reading prices over a public RPC and sending the transaction through their wallet. There is no StablePay server in the path — which is also why there is no StablePay outage that can stop you taking money.',
+    a: 'No. The widget runs entirely in your customer’s browser and sends the transaction through their wallet. There is no StablePay server involved, so there is no StablePay outage that can stop you from getting paid. You set the price of what you sell. When a customer pays with the native coin, the exchange rate used to mint the stablecoins comes from the price oracle that Tectonic uses.',
   },
   {
     q: 'Does StablePay ever hold my funds?',
@@ -14,11 +14,11 @@ const faqs = [
   },
   {
     q: 'What does my customer need?',
-    a: 'An EVM wallet in their browser — MetaMask or anything compatible. If they are on the wrong network the widget prompts them to switch, and if they have never added the chain it offers to add it. They do not create a StablePay account, because there is no such thing.',
+    a: 'An EVM wallet in their browser, such as MetaMask. If they are on the wrong network the widget asks them to switch, and if their wallet does not know the chain yet it offers to add it. They do not need a StablePay account.',
   },
   {
     q: 'What if the customer only holds the native coin?',
-    a: 'They can still pay, and they do not need to swap first. The widget quotes the native-coin cost from the on-chain oracle, and Tectonic mints stablecoins directly to your address in the same transaction. You never take on the volatile asset.',
+    a: 'They can still pay without swapping first. Your price stays in stablecoins. The widget works out how much of the native coin that costs using the Tectonic oracle, and Tectonic mints the stablecoins directly to your address in the same transaction. You never hold the volatile asset.',
   },
   {
     q: 'Are there chargebacks?',
@@ -26,7 +26,7 @@ const faqs = [
   },
   {
     q: 'Is this production-ready?',
-    a: 'The widget and SDK are complete and tested end to end, including against a live local deployment. The Tectonic contracts they settle against are not — they are pre-audit and not yet on a public network. Treat StablePay as ready to integrate and pilot, and watch the networks table above for the deployment that makes it ready to ship.',
+    a: 'The widget and SDK are complete and tested end to end against a local Tectonic deployment. The Tectonic contracts themselves are still pre-audit and not yet deployed on a public network. You can integrate and pilot StablePay today, and the networks table above shows which public deployment comes first.',
   },
 ]
 
@@ -62,7 +62,7 @@ export const Faq = () => (
           >
             Open an issue on GitHub
           </a>{' '}
-          — we answer them there in public.
+          and we will answer it there.
         </p>
       </Reveal>
     </div>

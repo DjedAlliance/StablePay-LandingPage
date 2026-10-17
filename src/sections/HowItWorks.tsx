@@ -6,19 +6,19 @@ const steps = [
   {
     icon: Code2,
     title: 'Embed the widget',
-    body: 'Install the SDK, hand it your receiving address and your price. It is a React component, not a hosted redirect — checkout never leaves your site.',
+    body: 'Install the SDK and give it your receiving address and your price. It is a React component rather than a hosted redirect, so checkout stays on your site.',
     accent: 'text-brand-600 bg-brand-50',
   },
   {
     icon: Wallet,
     title: 'Your customer signs once',
-    body: 'They pick a network and a token and connect their wallet. StablePay quotes the exact cost from the on-chain oracle and refreshes it immediately before signing.',
+    body: 'They pick a network and a token and connect their wallet. If they pay in the native coin, StablePay converts your price at the Tectonic oracle rate and refreshes it just before signing.',
     accent: 'text-gold-700 bg-gold-50',
   },
   {
     icon: BadgeCheck,
     title: 'You are paid on-chain',
-    body: 'Settlement is the transaction. Nothing clears afterwards and nothing is held in escrow — the stablecoins are in your wallet by the time the receipt returns.',
+    body: 'The transaction is the settlement. Nothing clears later and nothing sits in escrow: the stablecoins are in your wallet by the time the receipt comes back.',
     accent: 'text-ember-500 bg-ember-50',
   },
 ]
@@ -80,7 +80,7 @@ export const HowItWorks = () => (
     <div className="container">
       <SectionHeading
         eyebrow="How it works"
-        title="Three steps, and no step is a server you have to run."
+        title="Three steps, with no server for you to run."
         description="The widget talks to smart contracts from the browser. There is no StablePay backend to sign up for, go down, or hold your money."
       />
 
@@ -107,7 +107,7 @@ export const HowItWorks = () => (
           <p className="mt-2 max-w-2xl text-[0.9375rem] leading-relaxed text-ink-500">
             If your customer already holds the stablecoin, it transfers straight to you. If they only
             hold the chain&rsquo;s native coin, Tectonic mints stablecoins to your address inside the
-            very same transaction — they never have to swap first.
+            same transaction, so they never have to swap first.
           </p>
 
           <div className="mt-6 grid gap-4">

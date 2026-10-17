@@ -11,7 +11,7 @@ const features = [
   {
     icon: ShieldCheck,
     title: 'Non-custodial by construction',
-    body: 'StablePay has no balance and no account. Funds move from your customer’s wallet to your address in the settling transaction — there is no step where anyone else holds them.',
+    body: 'StablePay has no balance and no account. Funds move from your customer’s wallet to your address in a single transaction, and nobody else holds them at any point.',
   },
   {
     icon: ArrowLeftRight,
@@ -21,7 +21,7 @@ const features = [
   {
     icon: Gauge,
     title: 'Quotes that favour the merchant',
-    body: 'Prices come from the on-chain oracle and are refreshed right before signing. The cost is rounded up, so you are credited at least the amount you invoiced — never less.',
+    body: 'You set your price in stablecoins. When a customer pays in the native coin, the conversion uses the Tectonic oracle rate, refreshed right before signing and rounded up, so you receive at least the amount you invoiced.',
   },
   {
     icon: Code2,
@@ -31,7 +31,7 @@ const features = [
   {
     icon: Network,
     title: 'Multi-chain from config',
-    body: 'Supporting another chain is a config entry. The widget prompts the customer to switch networks — or add the chain outright — without you writing wallet plumbing.',
+    body: 'Supporting another chain is a config entry. The widget asks the customer to switch networks, or to add the chain if their wallet lacks it, and you write no wallet code.',
   },
 ]
 
@@ -47,7 +47,7 @@ export const Features = () => (
       <SectionHeading
         eyebrow="Why StablePay"
         title="Everything a payment processor does, minus the payment processor."
-        description="Decentralised is not the selling point on its own. What matters is what falls away when there is no intermediary in the path."
+        description="Here is what changes for a merchant when nobody sits between you and your customer."
       />
 
       <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">

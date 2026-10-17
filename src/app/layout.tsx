@@ -19,11 +19,11 @@ const mono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://djedalliance.github.io/StablePay-LandingPage/'),
   title: {
-    default: 'StablePay — accept stablecoins without a payment processor',
+    default: 'StablePay: accept stablecoins without a payment processor',
     template: '%s · StablePay',
   },
   description:
-    'StablePay is an open-source checkout widget that settles payments directly against Tectonic stablecoin contracts. No backend, no custody, no intermediary — your customer signs one transaction and you are paid.',
+    'StablePay is an open-source checkout widget that settles payments directly against Tectonic stablecoin contracts. There is no backend and no custody: your customer signs one transaction and you are paid.',
   keywords: [
     'stablecoin payments',
     'crypto checkout',
@@ -35,14 +35,14 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     type: 'website',
-    title: 'StablePay — accept stablecoins without a payment processor',
+    title: 'StablePay: accept stablecoins without a payment processor',
     description:
-      'An open-source checkout widget that settles payments directly against Tectonic contracts. No backend, no custody, no middleman.',
+      'An open-source checkout widget that settles payments directly against Tectonic contracts, with no backend and no custody.',
     siteName: 'StablePay',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'StablePay — accept stablecoins without a payment processor',
+    title: 'StablePay: accept stablecoins without a payment processor',
     description:
       'An open-source checkout widget that settles payments directly against Tectonic contracts.',
   },

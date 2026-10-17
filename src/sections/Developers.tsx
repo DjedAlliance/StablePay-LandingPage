@@ -49,10 +49,10 @@ const networkSelector = new StablePay.NetworkSelector(config)`,
 ]
 
 const points = [
-  'Ships as ESM and UMD — works with Vite, Next.js or a plain script tag.',
+  'Ships as ESM and UMD builds, so it works with Vite, Next.js or a plain script tag.',
   'Wallet connection, chain switching and add-chain prompts are handled for you.',
-  'Gas is estimated per transaction, never hard-coded, so payments survive a stressed protocol.',
-  'The completion callback hands you the receipt to wire straight into fulfilment.',
+  'Gas is estimated for each transaction instead of being hard-coded.',
+  'The completion callback gives you the receipt, ready to pass to your fulfilment code.',
 ]
 
 export const Developers = () => (
