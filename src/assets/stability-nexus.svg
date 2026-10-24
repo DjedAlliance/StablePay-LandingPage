@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0" stop-color="#00C2A8" />
+      <stop offset="1" stop-color="#0078FF" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="12" fill="url(#g)" />
+  <g transform="translate(10 12)" fill="#fff" font-family="sans-serif" font-weight="700">
+    <text x="0" y="28" font-size="28">SN</text>
+  </g>
+</svg>
