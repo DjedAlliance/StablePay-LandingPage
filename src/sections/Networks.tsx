@@ -15,7 +15,6 @@ const networks: { name: string; chainId: string; coin: string; status: Status }[
   { name: 'Local dev chain (Anvil)', chainId: '31337', coin: 'ETH', status: 'live' },
   { name: 'Ethereum Sepolia', chainId: '11155111', coin: 'ETH', status: 'next' },
   { name: 'Ethereum Classic', chainId: '61', coin: 'ETC', status: 'planned' },
-  { name: 'Milkomeda C1', chainId: '2001', coin: 'mADA', status: 'planned' },
 ]
 
 const Pill = ({ status }: { status: Status }) => {

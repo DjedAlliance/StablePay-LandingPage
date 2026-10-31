@@ -6,8 +6,8 @@ import { site } from '@/lib/site'
 const properties = [
   {
     icon: Anchor,
-    title: 'The peg cannot break downward',
-    body: 'Stablecoins redeem at min(target price, reserve ÷ supply). Because of that formula, the protocol can never owe more than it holds in reserve.',
+    title: 'Depegs are fixed immediately',
+    body: 'If the price ever slips below the peg, redemptions correct it immediately instead of letting the gap linger, so your customer\'s payment keeps its value.',
     tone: 'bg-brand-50 text-brand-600',
   },
   {
@@ -30,7 +30,7 @@ export const Tectonic = () => (
       <SectionHeading
         eyebrow="The protocol underneath"
         title="Built on Tectonic, the stablecoin designed not to depeg."
-        description="StablePay settles against Tectonic, the successor to the Djed protocol, developed by Stability Nexus. Three of its design choices let a merchant treat an incoming payment as final."
+        description="StablePay settles against Tectonic, developed by Stability Nexus. Three of its design choices let a merchant treat an incoming payment as final."
       />
 
       <div className="mt-14 grid gap-5 md:grid-cols-3">

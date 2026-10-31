@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import { twMerge } from 'tailwind-merge'
 import Reveal from '@/components/Reveal'
 
@@ -9,8 +10,8 @@ export const SectionHeading = ({
   className,
 }: {
   eyebrow?: string
-  title: string
-  description?: string
+  title: ReactNode
+  description?: ReactNode
   align?: 'center' | 'left'
   className?: string
 }) => (

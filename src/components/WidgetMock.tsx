@@ -48,7 +48,7 @@ export const WidgetMock = () => (
         </div>
 
         <div className="mt-5 space-y-2.5">
-          <Row label="Network" value="Ethereum Sepolia" dotClass="bg-brand-500" />
+          <Row label="Network" value="Ethereum" dotClass="bg-brand-500" />
           <Row label="Pay with" value="ETH · balance 1.284" dotClass="bg-ember-400" />
         </div>
 

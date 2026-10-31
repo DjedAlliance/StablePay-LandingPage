@@ -46,8 +46,16 @@ export const Features = () => (
     <div className="container">
       <SectionHeading
         eyebrow="Why StablePay"
-        title="Everything a payment processor does, minus the payment processor."
-        description="Here is what changes for a merchant when nobody sits between you and your customer."
+        title={
+          <>
+            Everything a payment processor does,<br className="hidden sm:inline" /> minus the payment processor.
+          </>
+        }
+        description={
+          <>
+            Here is what changes for a merchant<br className="hidden sm:inline" /> when nobody sits between you and your customer.
+          </>
+        }
       />
 
       <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">

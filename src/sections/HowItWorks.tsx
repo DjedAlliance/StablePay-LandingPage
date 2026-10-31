@@ -81,7 +81,11 @@ export const HowItWorks = () => (
       <SectionHeading
         eyebrow="How it works"
         title="Three steps, with no server for you to run."
-        description="The widget talks to smart contracts from the browser. There is no StablePay backend to sign up for, go down, or hold your money."
+        description={
+          <>
+            The payment widget talks to smart contracts from the browser.<br className="hidden sm:inline" /> There is no StablePay backend to sign up for, go down, or hold your money.
+          </>
+        }
       />
 
       <div className="mt-14 grid gap-5 md:grid-cols-3">
