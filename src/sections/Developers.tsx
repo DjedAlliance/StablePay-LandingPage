@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { Check } from 'lucide-react'
 import Button from '@/components/Button'
 import CodeCard, { type Snippet } from '@/components/CodeCard'
@@ -10,11 +11,11 @@ const snippets: Snippet[] = [
     label: 'Install',
     file: 'terminal',
     lang: 'bash',
-    code: `npm install stablepay-sdk
+    code: `git clone https://github.com/DjedAlliance/StablePay.git
 
-# or
-pnpm add stablepay-sdk
-yarn add stablepay-sdk`,
+# from your app, next to the clone
+npm install --install-links \\
+  ../StablePay/tectonic-sdk ../StablePay/stablepay-sdk`,
   },
   {
     id: 'configure',
@@ -27,7 +28,7 @@ yarn add stablepay-sdk`,
 const config = new StablePay.Config({
   receivingAddress: '0xYourMerchantAddress',
   amounts: {
-    'tectonic-local': { stablecoin: 25 },
+    sepolia: { stablecoin: 25 },
   },
 })
 
@@ -40,19 +41,19 @@ const networkSelector = new StablePay.NetworkSelector(config)`,
     lang: 'jsx',
     code: `<StablePay.Widget
   networkSelector={networkSelector}
-  onTransactionComplete={(receipt) => {
-    // The payment is already settled by the time this fires.
-    fulfilOrder(receipt.transactionHash)
+  onTransactionComplete={(payment) => {
+    // Hand the hash to your server, which confirms it on-chain.
+    confirmOrder(orderId, payment.txHash)
   }}
 />`,
   },
 ]
 
 const points = [
-  'Ships as ESM and UMD builds, so it works with Vite, Next.js or a plain script tag.',
+  'Ships as ESM and UMD builds for Vite or Next.js, and can be bundled into a drop-in script for any website.',
   'Wallet connection, chain switching and add-chain prompts are handled for you.',
   'Gas is estimated for each transaction instead of being hard-coded.',
-  'The completion callback gives you the receipt, ready to pass to your fulfilment code.',
+  'The completion callback hands you the transaction hash, ready for your server to verify on-chain.',
 ]
 
 export const Developers = () => (
@@ -77,7 +78,7 @@ export const Developers = () => (
             ))}
           </ul>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Button as="a" href={site.repo} target="_blank" rel="noopener noreferrer">
+            <Button as={Link} href={site.docs}>
               Read the docs
             </Button>
             <Button as="a" href={site.sdkRepo} target="_blank" rel="noopener noreferrer" variant="secondary">

@@ -1,5 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { Menu, X, Github } from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { twMerge } from 'tailwind-merge'
@@ -7,9 +9,11 @@ import Button from '@/components/Button'
 import Logo from '@/components/Logo'
 import { nav, site } from '@/lib/site'
 
-export const Header = () => {
+export const Header = ({ wide = false }: { wide?: boolean }) => {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const pathname = usePathname() ?? ''
+  const isActive = (href: string) => href === '/docs' && pathname.startsWith('/docs')
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8)
@@ -33,21 +37,25 @@ export const Header = () => {
         scrolled ? 'border-line bg-white/85 backdrop-blur-md' : 'border-transparent bg-white/60 backdrop-blur-sm'
       )}
     >
-      <div className="container">
+      <div className={wide ? 'mx-auto w-full max-w-[1400px] px-5 md:px-8' : 'container'}>
         <div className="flex h-16 items-center justify-between gap-6 md:h-[72px]">
-          <a href="#top" className="shrink-0" aria-label="StablePay home">
+          <Link href="/" className="shrink-0" aria-label="StablePay home">
             <Logo />
-          </a>
+          </Link>
 
           <nav className="hidden items-center gap-1 lg:flex">
             {nav.map((item) => (
-              <a
+              <Link
                 key={item.href}
                 href={item.href}
-                className="rounded-full px-3 py-2 text-sm font-medium text-ink-500 transition hover:bg-surface-tint hover:text-ink-900"
+                aria-current={isActive(item.href) ? 'page' : undefined}
+                className={twMerge(
+                  'rounded-full px-3 py-2 text-sm font-medium text-ink-500 transition hover:bg-surface-tint hover:text-ink-900',
+                  isActive(item.href) && 'bg-brand-50 text-brand-700'
+                )}
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -61,7 +69,7 @@ export const Header = () => {
             >
               <Github className="h-[18px] w-[18px]" />
             </a>
-            <Button as="a" href={site.repo} target="_blank" rel="noopener noreferrer" size="sm" className="hidden sm:inline-flex">
+            <Button as={Link} href={site.quickStart} size="sm" className="hidden sm:inline-flex">
               Get started
             </Button>
             <button
@@ -89,18 +97,18 @@ export const Header = () => {
             <div className="container py-4">
               <nav className="flex flex-col">
                 {nav.map((item) => (
-                  <a
+                  <Link
                     key={item.href}
                     href={item.href}
                     onClick={() => setOpen(false)}
                     className="rounded-xl px-3 py-3 text-[0.9375rem] font-medium text-ink-700 transition hover:bg-surface-tint"
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 ))}
               </nav>
               <div className="mt-3 flex flex-col gap-2 border-t border-line-soft pt-4">
-                <Button as="a" href={site.repo} target="_blank" rel="noopener noreferrer" className="w-full">
+                <Button as={Link} href={site.quickStart} onClick={() => setOpen(false)} className="w-full">
                   Get started
                 </Button>
                 <Button as="a" href={site.repo} target="_blank" rel="noopener noreferrer" variant="secondary" className="w-full">

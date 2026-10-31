@@ -1,20 +1,20 @@
+import Link from 'next/link'
 import { Terminal } from 'lucide-react'
 import Reveal from '@/components/Reveal'
 import SectionHeading from '@/components/SectionHeading'
 import { site } from '@/lib/site'
 
-type Status = 'live' | 'next' | 'planned'
+type Status = 'live' | 'planned'
 
 const statusStyles: Record<Status, { label: string; className: string }> = {
-  live: { label: 'Available now', className: 'bg-forest-50 text-forest-600 ring-forest-100' },
-  next: { label: 'First public deployment', className: 'bg-gold-50 text-gold-700 ring-gold-200' },
+  live: { label: 'Live on testnet', className: 'bg-forest-50 text-forest-600 ring-forest-100' },
   planned: { label: 'Planned', className: 'bg-surface-tint text-ink-500 ring-line' },
 }
 
 const networks: { name: string; chainId: string; coin: string; status: Status }[] = [
-  { name: 'Local dev chain (Anvil)', chainId: '31337', coin: 'ETH', status: 'live' },
-  { name: 'Ethereum Sepolia', chainId: '11155111', coin: 'ETH', status: 'next' },
+  { name: 'Ethereum Sepolia', chainId: '11155111', coin: 'ETH', status: 'live' },
   { name: 'Ethereum Classic', chainId: '61', coin: 'ETC', status: 'planned' },
+  { name: 'Base', chainId: '8453', coin: 'ETH', status: 'planned' },
 ]
 
 const Pill = ({ status }: { status: Status }) => {
@@ -80,27 +80,25 @@ export const Networks = () => (
             </span>
             <h3 className="mt-5 text-[1.0625rem] font-semibold">You can try it today</h3>
             <p className="mt-2 text-[0.9375rem] leading-relaxed text-ink-500">
-              Start a local chain, run one deploy script, and pay yourself through the widget against
-              a Tectonic deployment on your own machine. Both payment flows work locally.
+              Run the demo shop against the live Tectonic deployment on Sepolia and pay yourself with
+              free testnet ETH. Both payment flows work, end to end, in about five minutes.
             </p>
             <div className="mt-5 rounded-xl bg-[#0B1730] px-4 py-3">
               <pre className="overflow-x-auto font-mono text-[0.75rem] leading-6 text-[#C9D4E8]">
                 <code>
-                  <span className="text-[#7C8CB2]">{'# one terminal\n'}</span>
-                  {'anvil\n\n'}
-                  <span className="text-[#7C8CB2]">{'# another\n'}</span>
-                  {'forge script script/DeployLocal.s.sol \\\n  --broadcast'}
+                  {'git clone ' + site.repo + '.git\n'}
+                  {'cd StablePay/stablepay-sdk && npm install\n'}
+                  {'cd example && npm install\n'}
+                  {'npm run dev'}
                 </code>
               </pre>
             </div>
-            <a
-              href={site.repo}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href={site.quickStart}
               className="mt-5 inline-flex text-sm font-medium text-brand-600 transition hover:text-brand-700"
             >
-              Read the local runbook →
-            </a>
+              Follow the quick start →
+            </Link>
           </div>
         </Reveal>
       </div>

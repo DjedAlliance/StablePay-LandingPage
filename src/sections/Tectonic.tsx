@@ -53,12 +53,12 @@ export const Tectonic = () => (
             <AlertCircle className="mt-0.5 h-5 w-5 shrink-0 text-gold-700" />
             <div>
               <p className="text-[0.9375rem] font-semibold text-ink-900">
-                Tectonic is still in active development
+                Tectonic is live on the Sepolia testnet
               </p>
               <p className="mt-1 max-w-2xl text-sm leading-relaxed text-ink-500">
-                The protocol contracts are pre-audit and not yet deployed to a public network.
-                StablePay&rsquo;s Tectonic integration is finished and tested, and for now it runs
-                against a local deployment.
+                StablePay settles every payment against the public Tectonic deployment on Ethereum
+                Sepolia, so you can integrate and pilot it today with free testnet ETH. The contracts
+                are still pre-audit, and mainnet networks will follow.
               </p>
             </div>
           </div>

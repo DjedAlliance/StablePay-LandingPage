@@ -1,4 +1,5 @@
 import { ArrowRight, Github } from 'lucide-react'
+import Link from 'next/link'
 import Button from '@/components/Button'
 import Reveal from '@/components/Reveal'
 import { site } from '@/lib/site'
@@ -22,11 +23,11 @@ export const CallToAction = () => (
           <div className="relative mx-auto max-w-2xl">
             <h2 className="text-display-md">Put a payment widget on your site this week.</h2>
             <p className="mt-5 text-lg leading-relaxed text-ink-500">
-              It is open source and needs no sign-up. You can have it running against a local
-              Tectonic deployment today.
+              It is open source and needs no sign-up. You can have it taking test payments on
+              Sepolia today.
             </p>
             <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-              <Button as="a" href={site.repo} target="_blank" rel="noopener noreferrer" size="lg">
+              <Button as={Link} href={site.tutorial} size="lg">
                 Start integrating <ArrowRight className="h-4 w-4" />
               </Button>
               <Button

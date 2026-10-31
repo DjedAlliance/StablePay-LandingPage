@@ -10,7 +10,7 @@ export type Snippet = { id: string; label: string; file: string; lang: 'bash' | 
    a full syntax-highlighting dependency into a landing page. */
 const PATTERN = new RegExp(
   [
-    '(\\/\\/[^\\n]*|#[^\\n]*)', // 1 comment
+    '((?<!:)\\/\\/[^\\n]*|#[^\\n]*)', // 1 comment
     "('(?:[^'\\\\]|\\\\.)*'|\"(?:[^\"\\\\]|\\\\.)*\"|`(?:[^`\\\\]|\\\\.)*`)", // 2 string
     '(<\\/?[A-Za-z][\\w.]*|\\/?>)', // 3 jsx tag
     '\\b(import|from|const|let|new|return|export|default|function|async|await)\\b', // 4 keyword
