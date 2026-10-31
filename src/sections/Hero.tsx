@@ -1,117 +1,72 @@
 'use client'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion } from 'framer-motion'
+import { ArrowRight, Github } from 'lucide-react'
 import Button from '@/components/Button'
-import StarsBg from '@/assets/stars.png'
-import { useRef } from 'react'
+import WidgetMock from '@/components/WidgetMock'
+import { site } from '@/lib/site'
 
-export const Hero = () => {
-  const sectionRef = useRef(null)
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start end', 'end start'],
-  })
+const fade = (delay: number) => ({
+  initial: { opacity: 0, y: 18 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] as const },
+})
 
-  const backgroundPositionY = useTransform(scrollYProgress, [0, 1], [-300, 300])
+export const Hero = () => (
+  <section id="top" className="relative isolate overflow-hidden">
+    {/* The logo's three circles, blown up and blurred into the page background. */}
+    <div className="brand-wash" aria-hidden="true">
+      <div className="absolute left-1/2 top-[-18rem] h-[38rem] w-[38rem] -translate-x-[62%] rounded-full bg-brand-400/25 blur-[90px] animate-drift" />
+      <div className="absolute left-[8%] top-[6rem] h-[30rem] w-[30rem] rounded-full bg-gold-300/30 blur-[90px] animate-drift [animation-delay:-5s]" />
+      <div className="absolute right-[2%] top-[-4rem] h-[32rem] w-[32rem] rounded-full bg-ember-300/25 blur-[90px] animate-drift [animation-delay:-9s]" />
+    </div>
+    <div
+      className="absolute inset-0 -z-10 rule-grid [mask-image:radial-gradient(75%_60%_at_50%_35%,black,transparent)]"
+      aria-hidden="true"
+    />
+    <div className="absolute inset-x-0 bottom-0 -z-10 h-40 bg-gradient-to-b from-transparent to-white" aria-hidden="true" />
 
-  return (
-    <motion.section
-      ref={sectionRef}
-      className="h-[420px] sm:h-[492px] md:h-[800px] flex items-center overflow-hidden relative [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]"
-      style={{
-        backgroundImage: `url(${StarsBg.src})`,
-        backgroundPositionY: backgroundPositionY,
-      }}
-      animate={{
-        backgroundPositionX: StarsBg.width,
-      }}
-      transition={{
-        repeat: Infinity,
-        ease: 'linear',
-        duration: 120,
-      }}
-    >
-      <div className="absolute inset-0 bg-[radial-gradient(90%_300%_at_50%_50%,rgba(255,134,59,0.2)_0%,transparent_50%)]"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(60%_60%_at_50%_0%,rgba(255,134,59,0.15)_0%,transparent_60%)]"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(40%_40%_at_50%_100%,rgba(255,134,59,0.1)_0%,transparent_70%)]"></div>
+    <div className="container relative pb-16 pt-14 md:pb-24 md:pt-20 lg:pb-28 lg:pt-24">
+      <div className="grid items-center gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,460px)] lg:gap-10">
+        <div className="max-w-2xl">
 
-      {/* Ring 1  */}
-      <motion.div
-        style={{
-          translateX: '-50%',
-          translateY: '-50%',
-        }}
-        animate={{
-          rotate: '1turn',
-        }}
-        transition={{
-          repeat: Infinity,
-          duration: 60,
-          ease: 'linear',
-        }}
-        className="absolute h-[180px] w-[180px] sm:h-[244px] sm:w-[244px] md:h-[680px] md:w-[680px] border border-white/40 rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-      >
-        <div className="absolute h-3 w-3 left-0 bg-white/50 rounded-full top-1/2 -translate-x-1/2 -translate-y-1/2"></div>
-        <div className="absolute h-3 w-3 left-1/2 bg-white/50 rounded-full top-0 -translate-x-1/2 -translate-y-1/2"></div>
-        <div className="absolute h-6 w-6 left-full border border-white/40 rounded-full top-1/2 -translate-x-1/2 -translate-y-1/2 inline-flex items-center justify-center">
-          <div className="h-3 w-3 bg-white/50 rounded-full"></div>
+
+          <motion.h1 {...fade(0.06)} className="mt-6 text-display-xl">
+            Accept stablecoins <span className="text-brand-500">without a payment processor</span>.
+          </motion.h1>
+
+          <motion.p {...fade(0.12)} className="mt-6 max-w-xl text-lg leading-relaxed text-ink-500 md:text-xl">
+            StablePay is a drop-in checkout widget that settles payments straight against Tectonic
+            contracts from your customer&rsquo;s browser. There is no backend and no custody: your
+            customer signs one transaction and the stablecoins arrive in your wallet.
+          </motion.p>
+
+          <motion.div {...fade(0.18)} className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <Button as="a" href={site.repo} target="_blank" rel="noopener noreferrer" size="lg">
+              Start integrating <ArrowRight className="h-4 w-4" />
+            </Button>
+            <Button as="a" href="#how-it-works" variant="secondary" size="lg">
+              See how it works
+            </Button>
+          </motion.div>
+
+          <motion.div {...fade(0.24)} className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-ink-400">
+            <span className="inline-flex items-center gap-1.5">
+              <Github className="h-4 w-4" /> Open source
+            </span>
+          </motion.div>
         </div>
-      </motion.div>
-      {/* End Ring 1 */}
 
-      {/* Ring 2  */}
-      <motion.div
-        style={{
-          translateX: '-50%',
-          translateY: '-50%',
-        }}
-        animate={{
-          rotate: '-1turn',
-        }}
-        transition={{
-          repeat: Infinity,
-          duration: 60,
-          ease: 'linear',
-        }}
-        className="absolute h-[320px] w-[320px] sm:h-[400px] sm:w-[400px] md:h-[980px] md:w-[980px] rounded-full border border-dashed border-orange-400 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-      ></motion.div>
-      {/* End Ring 2 */}
-
-      {/* Ring 3  */}
-      <motion.div
-        style={{
-          translateX: '-50%',
-          translateY: '-50%',
-        }}
-        animate={{
-          rotate: '1turn',
-        }}
-        transition={{
-          repeat: Infinity,
-          duration: 60,
-          ease: 'linear',
-        }}
-        className="absolute h-[400px] w-[400px] sm:h-[500px] sm:w-[500px] md:h-[1180px] md:w-[1180px] rounded-full border border-white/50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-      >
-        <div className="absolute h-3 w-3 left-0 bg-white/50 rounded-full top-1/2 -translate-x-1/2 -translate-y-1/2"></div>
-        <div className="absolute h-3 w-3 left-full bg-white/50 rounded-full top-1/2 -translate-x-1/2 -translate-y-1/2"></div>
-      </motion.div>
-      {/* End Ring 3 */}
-
-      <div className="container relative mt-8 md:mt-16 px-4 sm:px-6">
-        <p className="font-caudex text-base sm:text-lg md:text-2xl max-w-xl mx-auto text-orange-100/70 mb-3 md:mb-5 text-center tracking-tight italic">
-          ✨ Freeing merchants, redefining payments ✨
-        </p>
-
-        <h1 className="font-inter text-5xl sm:text-6xl md:text-8xl lg:text-[135px] md:leading-none tracking-tighter bg-gradient-to-br from-[#F7941D] via-[#F57C00] to-[#EF6C00] text-transparent bg-clip-text text-center pb-2 md:pb-4">
-          StablePay
-        </h1>
-        <p className="font-caudex text-base sm:text-lg md:text-2xl max-w-xs sm:max-w-md md:max-w-xl mx-auto text-orange-100/95 mt-3 md:mt-5 text-center tracking-tight px-2">
-          An open-source SDK enabling merchants to accept payments in Djed stablecoins
-        </p>
-        <div className="flex justify-center mt-5 md:mt-7 mb-4 md:mb-5">
-          <Button>Get Started </Button>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 28, scale: 0.97 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.85, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+          className="lg:pl-4"
+        >
+          <WidgetMock />
+        </motion.div>
       </div>
-    </motion.section>
-  )
-}
+    </div>
+  </section>
+)
+
+export default Hero

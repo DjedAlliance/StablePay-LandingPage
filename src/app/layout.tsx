@@ -1,5 +1,5 @@
-import type { Metadata } from 'next'
-import { Inter, Fraunces, Caudex } from 'next/font/google'
+import type { Metadata, Viewport } from 'next'
+import { Inter, JetBrains_Mono } from 'next/font/google'
 import { twMerge } from 'tailwind-merge'
 import './globals.css'
 
@@ -9,40 +9,66 @@ const inter = Inter({
   display: 'swap',
 })
 
-const fraunces = Fraunces({
+const mono = JetBrains_Mono({
   subsets: ['latin'],
-  variable: '--font-fraunces',
+  variable: '--font-mono',
   display: 'swap',
-  weight: ['400', '500', '600', '700'],
-})
-
-const caudex = Caudex({
-  subsets: ['latin'],
-  variable: '--font-caudex',
-  display: 'swap',
-  weight: ['400', '700'],
+  weight: ['400', '500'],
 })
 
 export const metadata: Metadata = {
-  title: 'StablePay Landing Page',
-  description: 'A landing page for StablePay',
+  metadataBase: new URL('https://djedalliance.github.io/StablePay-LandingPage/'),
+  title: {
+    default: 'StablePay: accept stablecoins without a payment processor',
+    template: '%s · StablePay',
+  },
+  description:
+    'StablePay is an open-source checkout widget that settles payments directly against Tectonic stablecoin contracts. There is no backend and no custody: your customer signs one transaction and you are paid.',
+  keywords: [
+    'stablecoin payments',
+    'crypto checkout',
+    'Tectonic protocol',
+    'decentralized payments',
+    'merchant SDK',
+    'Stability Nexus',
+    'Djed Alliance',
+  ],
+  openGraph: {
+    type: 'website',
+    title: 'StablePay: accept stablecoins without a payment processor',
+    description:
+      'An open-source checkout widget that settles payments directly against Tectonic contracts, with no backend and no custody.',
+    siteName: 'StablePay',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'StablePay: accept stablecoins without a payment processor',
+    description:
+      'An open-source checkout widget that settles payments directly against Tectonic contracts.',
+  },
 }
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+export const viewport: Viewport = {
+  themeColor: '#ffffff',
+  colorScheme: 'light',
+}
+
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <body
         className={twMerge(
           inter.variable,
-          fraunces.variable,
-          caudex.variable,
-          'font-inter bg-black text-white antialiased'
+          mono.variable,
+          'bg-white font-sans text-ink-700 antialiased selection:bg-brand-100'
         )}
       >
+        <a
+          href="#how-it-works"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-brand-500 focus:px-4 focus:py-2 focus:text-sm focus:text-white"
+        >
+          Skip to content
+        </a>
         {children}
       </body>
     </html>

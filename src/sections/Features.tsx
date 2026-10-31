@@ -1,186 +1,80 @@
-'use client'
-import ProductImage from '@/assets/product-image.png'
-import StarsBg from '@/assets/stars.png'
-import {
-  animate,
-  motion,
-  useMotionTemplate,
-  useMotionValue,
-  useScroll,
-  useTransform,
-  ValueAnimationTransition,
-} from 'framer-motion'
-import { ComponentPropsWithoutRef, useEffect, useRef, useState } from 'react'
-import { Rocket, ShieldCheck } from 'lucide-react'
+import { ArrowLeftRight, Code2, Gauge, Network, ServerOff, ShieldCheck } from 'lucide-react'
+import Reveal from '@/components/Reveal'
+import SectionHeading from '@/components/SectionHeading'
 
-const tabs = [
+const features = [
   {
-    IconComponent: Rocket,
-    title: 'User-friendly setup',
-    isNew: true,
-    backgroundPositionX: 0,
-    backgroundPositionY: 0,
-    backgroundSizeX: 150,
+    icon: ServerOff,
+    title: 'No intermediary servers',
+    body: 'The widget calls smart contracts directly from the browser. There is nothing between you and your customer to rate-limit you, go offline, or change its terms.',
   },
   {
-    IconComponent: ShieldCheck,
-    title: 'Secure & stable payments',
-    isNew: true,
-    backgroundPositionX: 100,
-    backgroundPositionY: 27,
-    backgroundSizeX: 177,
+    icon: ShieldCheck,
+    title: 'Non-custodial by construction',
+    body: 'StablePay has no balance and no account. Funds move from your customer’s wallet to your address in a single transaction, and nobody else holds them at any point.',
+  },
+  {
+    icon: ArrowLeftRight,
+    title: 'Conversion on payment',
+    body: 'Customers paying in the native coin do not have to swap first. Tectonic mints stablecoins to your address in the same transaction, so you are never left holding a volatile asset.',
+  },
+  {
+    icon: Gauge,
+    title: 'Quotes that favour the merchant',
+    body: 'You set your price in stablecoins. When a customer pays in the native coin, the conversion uses the Tectonic oracle rate, refreshed right before signing and rounded up, so you receive at least the amount you invoiced.',
+  },
+  {
+    icon: Code2,
+    title: 'A drop-in React component',
+    body: 'Two imports and one config object. Ships as ESM and UMD builds, styles included, and hands you the receipt through a completion callback you can wire to fulfilment.',
+  },
+  {
+    icon: Network,
+    title: 'Multi-chain from config',
+    body: 'Supporting another chain is a config entry. The widget asks the customer to switch networks, or to add the chain if their wallet lacks it, and you write no wallet code.',
   },
 ]
 
-const FeatureTab = (props: (typeof tabs)[number] & ComponentPropsWithoutRef<'div'> & { selected: boolean }) => {
-  const tabRef = useRef<HTMLDivElement>(null)
-  const xPercentage = useMotionValue(0)
-  const yPercentage = useMotionValue(0)
-  const maskImage = useMotionTemplate`radial-gradient(80px 80px at ${xPercentage}% ${yPercentage}%, black, transparent)`
+const tiles = [
+  'bg-brand-50 text-brand-600',
+  'bg-gold-50 text-gold-700',
+  'bg-ember-50 text-ember-500',
+] as const
 
-  useEffect(() => {
-    if (!tabRef.current || !props.selected) return
+export const Features = () => (
+  <section id="features" className="scroll-mt-24 border-y border-line bg-surface-subtle py-20 md:py-28">
+    <div className="container">
+      <SectionHeading
+        eyebrow="Why StablePay"
+        title={
+          <>
+            Everything a payment processor does,<br className="hidden sm:inline" /> minus the payment processor.
+          </>
+        }
+        description={
+          <>
+            Here is what changes for a merchant<br className="hidden sm:inline" /> when nobody sits between you and your customer.
+          </>
+        }
+      />
 
-    xPercentage.set(0)
-    yPercentage.set(0)
-
-    const { height, width } = tabRef.current.getBoundingClientRect()
-    const circumference = height * 2 + width * 2
-    const times = [0, width / circumference, (width + height) / circumference, (width * 2 + height) / circumference, 1]
-
-    const options: ValueAnimationTransition = {
-      times: times,
-      duration: 4,
-      repeat: Infinity,
-      ease: 'linear',
-      repeatType: 'loop',
-    }
-
-    animate(xPercentage, [0, 100, 100, 0, 0], options)
-    animate(yPercentage, [0, 0, 100, 100, 0], options)
-  }, [props.selected, xPercentage, yPercentage])
-
-  const IconComponent = props.IconComponent
-
-  return (
-    <motion.div
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-      className="border border-white/15 flex p-2 sm:p-2.5 rounded-xl gap-2 sm:gap-2.5 items-center lg:flex-1 relative cursor-pointer"
-      ref={tabRef}
-      onClick={props.onClick}
-    >
-      {props.selected && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.3 }}
-          style={{
-            maskImage: maskImage,
-          }}
-          className="absolute inset-0 -m-px border border-[#FF863B] rounded-xl"
-        />
-      )}
-      <motion.div
-        whileHover={{ rotate: 10 }}
-        className="h-10 w-10 sm:h-12 sm:w-12 border border-white/15 rounded-lg inline-flex items-center justify-center bg-white/5 flex-shrink-0"
-      >
-        <IconComponent className="h-4 w-4 sm:h-5 sm:w-5 text-white/70" />
-      </motion.div>
-      <div className="font-medium text-sm sm:text-base">{props.title}</div>
-      {props.isNew && (
-        <motion.div
-          initial={{ scale: 0.8 }}
-          animate={{ scale: 1 }}
-          transition={{ type: 'spring', stiffness: 300 }}
-          className="text-xs rounded-full px-1.5 sm:px-2 py-0.5 bg-[#FF863B] text-black font-semibold flex-shrink-0"
-        >
-          new
-        </motion.div>
-      )}
-    </motion.div>
-  )
-}
-
-export const Features = () => {
-  const [selectedTab, setSelectedTab] = useState(0)
-
-  const backgroundPositionX = useMotionValue(tabs[0].backgroundPositionX)
-  const backgroundPositionY = useMotionValue(tabs[0].backgroundPositionY)
-  const backgroundSizeX = useMotionValue(tabs[0].backgroundSizeX)
-
-  const backgroundPosition = useMotionTemplate`${backgroundPositionX}% ${backgroundPositionY}%`
-  const backgroundSize = useMotionTemplate`${backgroundSizeX}% auto`
-
-  const handleSelectTab = (index: number) => {
-    setSelectedTab(index)
-
-    const options: ValueAnimationTransition = {
-      duration: 2,
-      ease: 'easeInOut',
-    }
-
-    animate(backgroundSizeX, [backgroundSizeX.get(), 100, tabs[index].backgroundSizeX], options)
-    animate(backgroundPositionX, [backgroundPositionX.get(), tabs[index].backgroundPositionX], options)
-    animate(backgroundPositionY, [backgroundPositionY.get(), tabs[index].backgroundPositionY], options)
-  }
-
-  const { scrollYProgress } = useScroll()
-  const starsBackgroundY = useTransform(scrollYProgress, [0, 1], [-300, 300])
-
-  return (
-    <motion.section
-     id="features"
-      className="scroll-mt-24 py-12 sm:py-16 md:py-24 bg-black relative overflow-visible"
-      style={{
-        backgroundImage: `url(${StarsBg.src})`,
-        backgroundPositionY: starsBackgroundY,
-        backgroundSize: 'cover',
-      }}
-    >
-      <div className="container px-4 sm:px-6">
-        <motion.h2
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8 }}
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-center tracking-tighter text-white"
-        >
-          Easily integrate into your merchant website
-        </motion.h2>
-        <motion.p
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8 }}
-          className="text-white/70 text-base sm:text-lg md:text-xl max-w-2xl mx-auto tracking-tight text-center mt-3 sm:mt-5 px-2"
-        >
-          StablePay offers a seamless SDK for merchants to accept Djed stablecoins effortlessly.
-        </motion.p>
-
-        <div className="mt-6 sm:mt-8 md:mt-10 flex flex-col lg:flex-row gap-2 sm:gap-3">
-          {tabs.map((tab, index) => (
-            <FeatureTab selected={selectedTab === index} onClick={() => handleSelectTab(index)} {...tab} key={index} />
-          ))}
-        </div>
-
-        <motion.div
-          initial={{ scale: 0.8, opacity: 0 }}
-          whileInView={{ scale: 1, opacity: 1 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8 }}
-          className="border border-white/20 p-1.5 sm:p-2.5 rounded-xl mt-2 sm:mt-3"
-        >
-          <motion.div
-            className="aspect-video bg-cover border border-white/20 rounded-lg"
-            style={{
-              backgroundImage: `url(${ProductImage.src})`,
-              backgroundPosition: backgroundPosition,
-              backgroundSize: backgroundSize,
-            }}
-          />
-        </motion.div>
+      <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        {features.map((feature, i) => (
+          <Reveal key={feature.title} delay={(i % 3) * 0.07}>
+            <div className="card-lift h-full bg-white p-6">
+              <span
+                className={`inline-flex h-11 w-11 items-center justify-center rounded-xl ${tiles[i % tiles.length]}`}
+              >
+                <feature.icon className="h-[22px] w-[22px]" />
+              </span>
+              <h3 className="mt-5 text-[1.0625rem] font-semibold">{feature.title}</h3>
+              <p className="mt-2 text-[0.9375rem] leading-relaxed text-ink-500">{feature.body}</p>
+            </div>
+          </Reveal>
+        ))}
       </div>
-    </motion.section>
-  )
-}
+    </div>
+  </section>
+)
+
+export default Features

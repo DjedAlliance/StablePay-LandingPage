@@ -2,8 +2,115 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    --font-fallback: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+    /* Brand primitives: StablePay logo + Tectonic brand */
+    --sp-blue: #235efe;
+    --sp-gold: #ffc822;
+    --sp-ember: #fd6724;
+    --tectonic-gold: #ffc517;
+    --tectonic-forest: #228b22;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Headings share one optical rhythm across the page. */
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply text-ink-900 font-semibold tracking-tight;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background: rgba(35, 94, 254, 0.16);
+    color: #0a1633;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--sp-blue);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  /* The logo motif: three translucent circles blending into white.
+     Reused as the ambient background wash behind hero and CTA. */
+  .brand-wash {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border border-line bg-white/80 px-3 py-1 text-xs font-medium tracking-wide text-ink-500 shadow-xs backdrop-blur;
+  }
+
+  .card {
+    @apply rounded-2xl border border-line bg-white shadow-card;
+  }
+
+  /* Subtle top-edge highlight, the way Stripe lifts a card off the page. */
+  .card-lift {
+    @apply card transition duration-300;
+  }
+
+  .card-lift:hover {
+    @apply -translate-y-0.5 shadow-lift;
+  }
+
+  .rule-grid {
+    background-image:
+      linear-gradient(to right, rgba(10, 22, 51, 0.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(10, 22, 51, 0.045) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Scrollbar, light theme, unobtrusive. */
+@supports selector(::-webkit-scrollbar) {
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #d7dEEA;
+    border: 3px solid #fff;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #b9c4d6;
   }
 }
