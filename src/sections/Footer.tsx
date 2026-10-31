@@ -1,6 +1,7 @@
 import XSocial from '@/assets/social-x.svg'
 import YTSocial from '@/assets/social-youtube.svg'
 import GitHubSvg from '@/assets/github.svg'
+import Link from 'next/link'
 import Logo from '@/components/Logo'
 import { site } from '@/lib/site'
 
@@ -8,15 +9,17 @@ const columns = [
   {
     heading: 'Product',
     links: [
-      { label: 'How it works', href: '#how-it-works' },
-      { label: 'Features', href: '#features' },
-      { label: 'Networks', href: '#networks' },
-      { label: 'FAQ', href: '#faq' },
+      { label: 'How it works', href: '/#how-it-works' },
+      { label: 'Features', href: '/#features' },
+      { label: 'Networks', href: '/#networks' },
+      { label: 'FAQ', href: '/#faq' },
     ],
   },
   {
     heading: 'Developers',
     links: [
+      { label: 'Documentation', href: site.docs },
+      { label: 'Integration tutorial', href: site.tutorial },
       { label: 'GitHub repository', href: site.repo, external: true },
       { label: 'StablePay SDK', href: site.sdkRepo, external: true },
       { label: 'Tectonic contracts', href: site.tectonicContracts, external: true },
@@ -77,15 +80,20 @@ export const Footer = () => (
             <ul className="mt-4 space-y-2.5">
               {column.links.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
-                    {...('external' in link && link.external
-                      ? { target: '_blank', rel: 'noopener noreferrer' }
-                      : {})}
-                    className="text-sm text-ink-500 transition hover:text-ink-900"
-                  >
-                    {link.label}
-                  </a>
+                  {'external' in link && link.external ? (
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-ink-500 transition hover:text-ink-900"
+                    >
+                      {link.label}
+                    </a>
+                  ) : (
+                    <Link href={link.href} className="text-sm text-ink-500 transition hover:text-ink-900">
+                      {link.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
@@ -111,7 +119,7 @@ export const Footer = () => (
             ))}
           </ul>
         </div>
-        <p>Tectonic contracts are pre-audit and not yet deployed to a public network.</p>
+        <p>Tectonic contracts are pre-audit and currently live on the Sepolia testnet.</p>
       </div>
     </div>
   </footer>

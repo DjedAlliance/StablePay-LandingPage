@@ -6,7 +6,7 @@ import { site } from '@/lib/site'
 const faqs = [
   {
     q: 'Do I need to run a backend?',
-    a: 'No. The widget runs entirely in your customer’s browser and sends the transaction through their wallet. There is no StablePay server involved, so there is no StablePay outage that can stop you from getting paid. You set the price of what you sell. When a customer pays with the native coin, the exchange rate used to mint the stablecoins comes from the price oracle that Tectonic uses.',
+    a: 'Not to take a payment. The widget runs entirely in your customer’s browser and sends the transaction through their wallet. There is no StablePay server involved, so there is no StablePay outage that can stop you from getting paid. To ship orders safely, your own server should confirm each transaction on-chain before fulfilling it; the docs give you that check in about forty lines. You set the price of what you sell. When a customer pays with the native coin, the exchange rate used to mint the stablecoins comes from the price oracle that Tectonic uses.',
   },
   {
     q: 'Does StablePay ever hold my funds?',
@@ -26,7 +26,7 @@ const faqs = [
   },
   {
     q: 'Is this production-ready?',
-    a: 'The widget and SDK are complete and tested end to end against a local Tectonic deployment. The Tectonic contracts themselves are still pre-audit and not yet deployed on a public network. You can integrate and pilot StablePay today, and the networks table above shows which public deployment comes first.',
+    a: 'The widget and SDK are complete and run against the public Tectonic deployment on the Ethereum Sepolia testnet. The Tectonic contracts are still pre-audit and there is no mainnet deployment yet. You can integrate and pilot StablePay today with free testnet ETH, and the networks table above shows which mainnets are planned.',
   },
 ]
 

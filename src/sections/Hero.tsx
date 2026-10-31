@@ -1,6 +1,7 @@
 'use client'
 import { motion } from 'framer-motion'
 import { ArrowRight, Github } from 'lucide-react'
+import Link from 'next/link'
 import Button from '@/components/Button'
 import WidgetMock from '@/components/WidgetMock'
 import { site } from '@/lib/site'
@@ -41,7 +42,7 @@ export const Hero = () => (
           </motion.p>
 
           <motion.div {...fade(0.18)} className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <Button as="a" href={site.repo} target="_blank" rel="noopener noreferrer" size="lg">
+            <Button as={Link} href={site.tutorial} size="lg">
               Start integrating <ArrowRight className="h-4 w-4" />
             </Button>
             <Button as="a" href="#how-it-works" variant="secondary" size="lg">

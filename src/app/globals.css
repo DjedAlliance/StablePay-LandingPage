@@ -114,3 +114,259 @@
     background: #b9c4d6;
   }
 }
+
+@layer components {
+  .doc-prose {
+    @apply text-[1.0625rem] leading-[1.75] text-ink-700;
+  }
+
+  .doc-prose > * + * {
+    @apply mt-5;
+  }
+
+  .doc-prose p {
+    @apply text-ink-700;
+  }
+
+  .doc-h2 {
+    @apply relative mt-14 scroll-mt-28 border-t border-line-soft pt-10 text-[1.625rem] font-semibold leading-tight tracking-tight text-ink-900;
+  }
+
+  .doc-h3 {
+    @apply relative mt-10 scroll-mt-28 text-[1.25rem] font-semibold leading-snug tracking-tight text-ink-900;
+  }
+
+  .doc-h4 {
+    @apply mt-8 scroll-mt-28 text-base font-semibold text-ink-900;
+  }
+
+  .doc-step {
+    @apply relative mt-12 flex scroll-mt-28 items-center gap-3 text-[1.25rem] font-semibold leading-snug tracking-tight text-ink-900;
+  }
+
+  .doc-step-number {
+    @apply inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-500 font-mono text-sm font-semibold text-white shadow-brand;
+  }
+
+  .doc-anchor {
+    @apply ml-2 text-ink-300 no-underline opacity-0 transition hover:text-brand-500 group-hover:opacity-100;
+  }
+
+  .doc-link {
+    @apply font-medium text-brand-600 underline decoration-brand-200 decoration-2 underline-offset-[3px] transition hover:text-brand-700 hover:decoration-brand-400;
+  }
+
+  .doc-inline-code {
+    @apply rounded-md border border-line-soft bg-surface-tint px-1.5 py-0.5 font-mono text-[0.84em] text-ink-900;
+    overflow-wrap: anywhere;
+  }
+
+  .doc-link .doc-inline-code {
+    @apply text-brand-700;
+  }
+
+  .doc-ul,
+  .doc-ol {
+    @apply space-y-2 pl-6;
+  }
+
+  .doc-ul {
+    @apply list-disc marker:text-brand-300;
+  }
+
+  .doc-ol {
+    @apply list-decimal marker:font-mono marker:text-sm marker:text-brand-500;
+  }
+
+  .doc-ul li > div > * + *,
+  .doc-ol li > div > * + * {
+    @apply mt-3;
+  }
+
+  .doc-ul ul,
+  .doc-ol ul {
+    @apply mt-2;
+  }
+
+  .doc-tasks {
+    @apply space-y-2.5;
+  }
+
+  .doc-task {
+    @apply flex gap-3;
+  }
+
+  .doc-task-box {
+    @apply mt-1.5 inline-flex h-[1.125rem] w-[1.125rem] shrink-0 items-center justify-center rounded-[5px] border-2 border-ink-300 bg-white text-white;
+  }
+
+  .doc-task-box.checked {
+    @apply border-forest-500 bg-forest-500;
+  }
+
+  .doc-table-wrap {
+    @apply overflow-x-auto rounded-2xl border border-line shadow-xs;
+  }
+
+  .doc-table {
+    @apply w-full min-w-[32rem] border-collapse text-left text-[0.9375rem] leading-relaxed;
+  }
+
+  .doc-table th {
+    @apply whitespace-nowrap border-b border-line bg-surface-subtle px-4 py-2.5 text-xs font-semibold uppercase tracking-wider text-ink-400;
+  }
+
+  .doc-table td {
+    @apply border-b border-line-soft px-4 py-3 align-top text-ink-700;
+  }
+
+  .doc-table tr:last-child td {
+    @apply border-b-0;
+  }
+
+  .doc-table .doc-inline-code {
+    @apply text-[0.8em];
+  }
+
+  .doc-hr {
+    @apply my-10 border-line;
+  }
+
+  .doc-quote {
+    @apply border-l-4 border-brand-200 pl-5 italic text-ink-500;
+  }
+
+  .doc-callout {
+    @apply rounded-2xl border px-5 py-4;
+  }
+
+  .doc-callout-title {
+    @apply mb-1.5 flex items-center gap-2 text-sm font-semibold;
+  }
+
+  .doc-callout-body {
+    @apply text-[0.9875rem] leading-relaxed;
+  }
+
+  .doc-callout-body > * + * {
+    @apply mt-3;
+  }
+
+  .doc-learn {
+    @apply rounded-2xl border border-brand-100 bg-gradient-to-br from-brand-50 via-white to-gold-50/60 px-6 py-5;
+  }
+
+  .doc-learn-title,
+  .doc-recap-title {
+    @apply mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-brand-600;
+  }
+
+  .doc-learn ul {
+    @apply space-y-2;
+  }
+
+  .doc-learn li {
+    @apply relative pl-6 text-[0.98rem] leading-relaxed text-ink-700;
+  }
+
+  .doc-learn li::before {
+    content: '';
+    @apply absolute left-0 top-[0.6em] h-2 w-2 rounded-full bg-gradient-to-br from-brand-500 to-ember-400;
+  }
+
+  .doc-recap {
+    @apply mt-14 scroll-mt-28 rounded-2xl border border-forest-100 bg-forest-50/50 px-6 py-5;
+  }
+
+  .doc-recap-title {
+    @apply text-forest-600;
+  }
+
+  .doc-recap > * + * {
+    @apply mt-3;
+  }
+
+  .doc-recap .doc-ul {
+    @apply marker:text-forest-400;
+  }
+
+  .doc-details {
+    @apply overflow-hidden rounded-2xl border border-line bg-white shadow-xs;
+  }
+
+  .doc-details summary {
+    @apply flex cursor-pointer list-none items-center gap-3 px-5 py-4 text-[0.98rem] font-medium leading-snug text-ink-900 transition hover:bg-surface-subtle;
+  }
+
+  .doc-details summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .doc-details-icon {
+    @apply inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand-600;
+  }
+
+  .doc-details.is-challenge .doc-details-icon {
+    @apply bg-gold-50 text-gold-700;
+  }
+
+  .doc-details.is-question .doc-details-icon {
+    @apply bg-surface-tint text-ink-400;
+  }
+
+  .doc-h2 .doc-inline-code,
+  .doc-h3 .doc-inline-code {
+    @apply border-0 bg-transparent p-0 text-[0.92em] text-ink-900;
+  }
+
+  .doc-details-body {
+    @apply border-t border-line-soft bg-surface-subtle/60 px-5 py-5 text-[0.98rem];
+  }
+
+  .doc-details-body > * + * {
+    @apply mt-4;
+  }
+
+  .doc-code {
+    @apply overflow-hidden rounded-2xl border border-brand-900/40 bg-[#0B1730] shadow-card;
+  }
+
+  .doc-code-bar {
+    @apply flex items-center justify-between gap-3 border-b border-white/10 px-4 py-2;
+  }
+
+  .doc-code-body pre {
+    @apply overflow-x-auto px-5 py-4 font-mono text-[0.8125rem] leading-[1.75] text-[#C9D4E8];
+    background: transparent !important;
+  }
+
+  .doc-code-body code {
+    @apply font-mono;
+    font-variant-ligatures: none;
+    counter-reset: line;
+  }
+
+  .doc-figure {
+    @apply rounded-2xl border border-line bg-gradient-to-b from-surface-subtle to-white p-4 shadow-xs;
+  }
+
+  .doc-widget {
+    @apply overflow-hidden rounded-2xl border border-line bg-white shadow-card;
+  }
+
+  .doc-inline-input {
+    @apply mx-0.5 rounded-md border border-line bg-white px-1.5 py-0.5 text-center font-mono text-sm text-ink-900 outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-100;
+  }
+
+  .doc-range {
+    @apply h-2 cursor-pointer appearance-none rounded-full bg-line;
+  }
+
+  .doc-range::-webkit-slider-thumb {
+    @apply h-5 w-5 appearance-none rounded-full border-2 border-white bg-ink-900 shadow-card;
+  }
+
+  .doc-range::-moz-range-thumb {
+    @apply h-5 w-5 rounded-full border-2 border-white bg-ink-900 shadow-card;
+  }
+}
